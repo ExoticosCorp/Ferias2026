@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Férias na África do Sul | Família Gomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF; --sand:#EFE3CF; --sand-deep:#E4D3B4;
+    --terracotta:#C1734B; --terracotta-deep:#A6572F;
+    --earth:#5A3D2B; --earth-deep:#3E2A1E; --gold:#AD8A4E;
+    --ink:#2C241C; --ink-soft:#6B5D4F; --line:#DCC9A8;
+    --cvc-yellow:#F6C445; --white:#FFFDF9;
+    --shadow: 0 10px 30px -12px rgba(60,40,20,0.18);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream); color:var(--ink); font-family:'Source Serif 4', serif; line-height:1.55; -webkit-font-smoothing:antialiased; padding-bottom:74px;}
+  h1,h2,h3,.serif-display{font-family:'Cormorant Garamond', serif; font-weight:600; color:var(--earth-deep); letter-spacing:0.01em;}
+  .eyebrow{font-family:'Inter', sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--terracotta-deep); font-weight:600;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; width:100%; height:100%; object-fit:cover;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px;}
+  svg.ic{width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; flex:0 0 auto; display:block;}
+
+  header.hero{background:var(--earth-deep); position:relative; overflow:hidden;}
+  .hero-media{display:grid; grid-template-columns:repeat(3,1fr); height:170px;}
+  .hero-media img{filter:saturate(0.92) brightness(0.85);}
+  .hero-content{position:relative; padding:24px 20px 20px; color:var(--cream);}
+  .hero-content::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(62,42,30,0.15), rgba(62,42,30,0.55)); pointer-events:none;}
+  .hero-inner{position:relative; z-index:1;}
+  .hero-title{font-size:clamp(30px,6vw,50px); line-height:1.02; color:var(--white);}
+  .hero-sub{font-family:'Inter', sans-serif; font-size:13px; letter-spacing:0.03em; color:#EADFCB; margin-top:8px;}
+  .hero-tagline{font-family:'Source Serif 4', serif; font-style:italic; font-size:13.5px; color:#D9C7A8; margin-top:9px;}
+  .weather-badge{display:inline-flex; align-items:center; gap:8px; margin-top:14px; padding:7px 14px; background:rgba(250,246,239,0.1); border:1px solid rgba(250,246,239,0.35); border-radius:20px; font-family:'Inter', sans-serif; font-size:11px; color:var(--cream);}
+  .weather-badge svg.ic{width:13px; height:13px; stroke:var(--cvc-yellow);}
+
+  nav.mainnav{position:sticky; top:0; z-index:50; background:var(--white); border-bottom:1px solid var(--line); box-shadow:0 2px 10px -6px rgba(60,40,20,0.15);}
+  .navscroll{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 12px;}
+  .navscroll::-webkit-scrollbar{display:none;}
+  .navlink{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:5px; padding:12px 14px 10px; font-family:'Inter', sans-serif; font-size:11px; color:var(--ink-soft); border-bottom:2px solid transparent; white-space:nowrap; cursor:pointer;}
+  .navlink svg.ic{width:17px; height:17px;}
+  .navlink.active{color:var(--terracotta-deep); border-bottom-color:var(--terracotta); font-weight:600;}
+
+  main{padding:22px 0 0;}
+  section{padding:26px 20px 8px; max-width:1180px; margin:0 auto;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; gap:10px;}
+  .section-head h2{font-size:23px;}
+  .divider{height:1px; background:linear-gradient(90deg, var(--line), transparent); margin:6px 0 20px;}
+
+  .card{background:var(--white); border:1px solid var(--line); border-radius:2px; box-shadow:var(--shadow);}
+  .tag{font-family:'Inter', sans-serif; font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:var(--earth); background:var(--sand); padding:4px 9px; border-radius:14px; font-weight:600; white-space:nowrap;}
+
+  .today-card{overflow:hidden;}
+  .today-media{height:200px; position:relative;}
+  .today-media .badge{position:absolute; top:12px; left:12px; background:rgba(44,36,28,0.72); color:var(--cream); font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 10px; border-radius:2px;}
+  .today-body{padding:20px;}
+  .today-body h3{font-size:26px; margin-bottom:4px;}
+  .today-activity{font-size:14.5px; color:var(--ink);}
+  .today-meta{display:flex; align-items:center; gap:8px; margin-top:12px; font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft);}
+  .today-meta svg.ic{width:14px; height:14px;}
+  .today-note{margin-top:14px; font-size:13.5px; color:var(--ink-soft); font-style:italic;}
+  .today-bullets{list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:6px;}
+  .today-bullets li{font-size:13px; color:var(--ink); padding-left:14px; position:relative;}
+  .today-bullets li::before{content:"—"; position:absolute; left:0; color:var(--terracotta-deep);}
+  .today-full{margin-top:12px; padding-top:12px; border-top:1px solid var(--line); font-size:13.5px; color:var(--ink-soft); line-height:1.6;}
+
+  .weather-card{padding:20px;}
+  .weather-nav{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .weather-nav > div{text-align:center; flex:1;}
+  .weather-loc-name{font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--earth-deep); font-weight:600; margin-top:2px;}
+  .wnav-btn{width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--white); color:var(--terracotta-deep); font-size:16px; cursor:pointer; flex:0 0 auto;}
+  .hourly-strip{display:none; gap:10px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line);}
+  .hourly-strip.show{display:flex;}
+  .hourly-item{flex:1; text-align:center; font-family:'Inter',sans-serif;}
+  .hourly-item .hlabel{font-size:10px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;}
+  .hourly-item .htemp{font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--earth-deep); font-weight:600; margin-top:2px;}
+  .weather-top{display:flex; align-items:center; justify-content:space-between;}
+  .weather-temp{font-family:'Cormorant Garamond',serif; font-size:44px; color:var(--earth-deep); font-weight:600;}
+  .weather-cond{font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft); text-align:right;}
+  .weather-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; margin-top:16px; padding-top:14px; border-top:1px solid var(--line); font-family:'Inter',sans-serif; font-size:12.5px;}
+  .weather-grid .k{color:var(--ink-soft);} .weather-grid .v{color:var(--ink); font-weight:600; float:right;}
+  .weather-tip{margin-top:14px; padding:10px 12px; background:var(--sand); border-radius:2px; font-size:13px; color:var(--earth);}
+  .weather-loc{font-family:'Inter',sans-serif; font-size:11px; color:var(--ink-soft); margin-top:2px;}
+
+  .summary-card{padding:4px 18px;}
+  .summary-row{display:flex; align-items:flex-start; gap:12px; padding:13px 0; border-bottom:1px solid var(--line);}
+  .summary-row:last-child{border-bottom:none;}
+  .summary-row svg.ic{margin-top:2px; color:var(--terracotta-deep);}
+  .summary-row .lbl{font-family:'Inter',sans-serif; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--terracotta-deep); font-weight:600;}
+  .summary-row .val{font-size:14px; color:var(--ink); margin-top:2px;}
+
+  .grid-2col{display:grid; grid-template-columns:1fr; gap:20px;}
+  .grid-3col{display:grid; grid-template-columns:1fr; gap:16px;}
+  .grid-4col{display:grid; grid-template-columns:1fr; gap:16px;}
+
+  /* DESTAQUE DO DIA */
+  .highlight-card{overflow:hidden;}
+  .highlight-media{height:190px; position:relative;}
+  .highlight-eyebrow{position:absolute; top:14px; left:14px; background:var(--terracotta-deep); color:var(--white); font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 10px;}
+  .highlight-body{padding:18px 20px;}
+  .highlight-body h3{font-size:22px;}
+  .highlight-body p{font-size:13.5px; color:var(--ink-soft); margin-top:6px;}
+
+  /* ROTEIRO */
+  .day-row{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line);}
+  .day-row:last-child{border-bottom:none;}
+  .day-badge{flex:0 0 auto; width:58px; text-align:center; font-family:'Inter',sans-serif;}
+  .day-badge .num{font-family:'Cormorant Garamond',serif; font-size:21px; color:var(--terracotta-deep); font-weight:600; line-height:1;}
+  .day-badge .date{font-size:10px; color:var(--ink-soft); letter-spacing:0.03em; text-transform:uppercase; margin-top:2px;}
+  .day-ic{flex:0 0 auto; padding-top:3px; color:var(--earth);}
+  .day-content .route{font-size:15px; font-weight:600; color:var(--ink);}
+  .day-content .desc{font-size:13.5px; color:var(--ink-soft); margin-top:3px;}
+
+  /* SOBRE O DESTINO */
+  .intro-text{font-size:14.5px; color:var(--ink); margin-bottom:18px;}
+  .leg-card{overflow:hidden;}
+  .leg-media{height:110px;}
+  .leg-body{padding:14px 16px;}
+  .leg-body h3{font-size:18px;}
+  .leg-body p{font-size:12.5px; color:var(--ink-soft); margin-top:5px;}
+
+  /* O QUE SABER */
+  .know-card{padding:4px 18px;}
+  .know-row{display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line);}
+  .know-row:last-child{border-bottom:none;}
+  .know-row svg.ic{color:var(--terracotta-deep); margin-top:2px;}
+  .know-row .lbl{font-family:'Inter',sans-serif; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--terracotta-deep); font-weight:600;}
+  .know-row .val{font-size:13.5px; color:var(--ink); margin-top:2px;}
+
+  /* DICAS DIARIAS - compacto */
+  .tips-card{padding:6px 18px;}
+  .tips-grid{display:grid; grid-template-columns:1fr; gap:0;}
+  .tip-day{padding:10px 0; border-bottom:1px solid var(--line);}
+  .tip-day:last-child{border-bottom:none;}
+  .tip-day-label{font-family:'Inter',sans-serif; font-size:10.5px; font-weight:700; color:var(--earth-deep); text-transform:uppercase; letter-spacing:0.03em; margin-bottom:5px;}
+  .tip-line{display:flex; gap:8px; align-items:baseline; padding:2px 0; font-size:12.5px; color:var(--ink);}
+  .tip-line .tag{font-size:9px; padding:2px 7px;}
+
+  .item-card{padding:16px 18px; margin-bottom:12px;}
+  .item-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .item-title{font-size:16px; font-weight:600; color:var(--ink);}
+  .item-title a{color:var(--terracotta-deep); text-decoration:underline; text-underline-offset:2px;}
+  .item-sub{font-family:'Inter',sans-serif; font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
+  .item-details{display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; margin-top:12px; padding-top:12px; border-top:1px solid var(--line); font-family:'Inter',sans-serif; font-size:12px;}
+  .item-details .k{color:var(--ink-soft);} .item-details .v{color:var(--ink); font-weight:600;}
+  .item-details .v a{color:var(--terracotta-deep); font-weight:600;}
+  .status-link{font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:var(--terracotta-deep); white-space:nowrap;}
+
+  .doc-row{display:flex; align-items:flex-start; gap:12px; padding:13px 16px; border-bottom:1px solid var(--line);}
+  .doc-row:last-child{border-bottom:none;}
+  .doc-row svg.ic{margin-top:2px; color:var(--terracotta-deep);}
+  .doc-name{font-size:14px; color:var(--ink); font-weight:600;}
+  .doc-note{font-family:'Inter',sans-serif; font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
+
+  .contact-row{display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid var(--line); gap:10px;}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-role{font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--terracotta-deep); font-weight:600;}
+  .contact-name{font-size:14.5px; color:var(--ink); margin-top:2px;}
+  .contact-phone{font-family:'Inter',sans-serif; font-size:13px; color:var(--earth); font-weight:600; white-space:nowrap;}
+
+  .quickbar-desktop{display:none;}
+  .quickbar-mobile{position:fixed; bottom:0; left:0; right:0; z-index:60; background:var(--white); border-top:1px solid var(--line); box-shadow:0 -6px 18px -10px rgba(60,40,20,0.25); display:flex; justify-content:space-around; padding:8px 4px 10px;}
+  .qbtn{display:flex; flex-direction:column; align-items:center; gap:3px; font-family:'Inter',sans-serif; font-size:9.5px; color:var(--ink-soft); background:none; border:none;}
+  .qbtn svg.ic{width:18px; height:18px;}
+
+  footer{margin-top:30px; background:var(--earth-deep); color:#EADFCB; padding:34px 20px 22px;}
+  .footer-inner{max-width:1180px; margin:0 auto; text-align:center;}
+  .footer-brand{font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--white);}
+  .footer-sub{font-family:'Inter',sans-serif; font-size:11px; color:#C7B291; margin-top:6px;}
+  .pattern{height:20px; margin-top:22px; background-image: repeating-linear-gradient(45deg, transparent 0 8px, rgba(173,138,78,0.55) 8px 9px), repeating-linear-gradient(-45deg, transparent 0 8px, rgba(173,138,78,0.55) 8px 9px); opacity:0.7;}
+  .footer-mark{margin-top:16px; display:inline-flex; align-items:center; gap:6px; font-family:'Inter',sans-serif; font-size:10px; color:#B79C79;}
+  .footer-mark .yd{width:6px; height:6px; border-radius:50%; background:var(--cvc-yellow); display:inline-block;}
+
+  @media (min-width: 900px){
+    body{padding-bottom:0;}
+    .quickbar-mobile{display:none;}
+    .quickbar-desktop{display:flex; justify-content:center; gap:34px; flex-wrap:wrap; padding:20px; margin-top:10px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--white);}
+    .quickbar-desktop .qbtn{flex-direction:row; font-size:12.5px; color:var(--earth); gap:7px; cursor:pointer;}
+    .hero-media{height:250px; grid-template-columns:1.3fr 1fr 1fr;}
+    .hero-content{padding:32px 40px 28px;}
+    .navscroll{justify-content:center; padding:0 20px;}
+    .navlink{flex-direction:row; gap:7px; padding:16px 18px;}
+    section{padding:36px 20px 10px;}
+    .grid-2col{grid-template-columns: 1.15fr 0.85fr 0.85fr;}
+    .grid-3col{grid-template-columns: 1fr 1fr;}
+    .grid-4col{grid-template-columns: repeat(4,1fr);}
+    .today-media{height:230px;}
+    .tips-grid{grid-template-columns: 1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 3.5l1.5 5 6-2-1 3-6 2-1 5 2 1.5-1 1-3-1-3 1-1-1 2-1.5-1-5-6-2-1-3 6 2z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 012-2h14a2 2 0 012 2v7"/><path d="M3 15h18"/><path d="M7 11V7a2 2 0 012-2h6a2 2 0 012 2v4"/><path d="M3 18v2M21 18v2"/></symbol>
+  <symbol id="i-van" viewBox="0 0 24 24"><path d="M3 16V8a1 1 0 011-1h9l4 4v5"/><path d="M3 16h1M17 16h4"/><circle cx="7" cy="17" r="1.8"/><circle cx="16" cy="17" r="1.8"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 1.5a11 11 0 005 5L14 13l5 2v2c0 1-1 2-2 2C10 19 4 13 4 5z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></symbol>
+  <symbol id="i-grape" viewBox="0 0 24 24"><circle cx="9" cy="10" r="2.2"/><circle cx="14" cy="10" r="2.2"/><circle cx="11.5" cy="14.2" r="2.2"/><circle cx="7" cy="14.5" r="2"/><circle cx="16" cy="14.5" r="2"/><circle cx="11.5" cy="6" r="2"/><path d="M11.5 4V2"/></symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="12" cy="15" r="3.4"/><circle cx="6" cy="9" r="1.6"/><circle cx="18" cy="9" r="1.6"/><circle cx="9.2" cy="6" r="1.6"/><circle cx="14.8" cy="6" r="1.6"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z"/><path d="M4 20c3-4 6-7 10-9"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.4"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.2"/><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="19" r="2.2"/><path d="M8 10.8l8-4.4M8 13.2l8 4.4"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v1a2 2 0 000 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1a2 2 0 000-4V9z"/><path d="M9 7v10"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/></symbol>
+  <symbol id="i-vaccine" viewBox="0 0 24 24"><path d="M18 3l3 3-2 2-3-3 2-2z"/><path d="M17 6l-9 9-4 4v-4l4-4M11 8l5 5"/></symbol>
+  <symbol id="i-passport" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 16.5c.5-2 2-3 3.5-3s3 1 3.5 3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/></symbol>
+  <symbol id="i-suitcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M3 12h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 3v18"/><path d="M5 4h13l-3 4 3 4H5"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 7 6 11.5A6 6 0 016 14.5C6 10 12 3 12 3z"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.5 9.5c0-1.2 1.1-2 2.5-2s2.5.7 2.5 1.8c0 2.4-5 1.4-5 3.8 0 1.1 1.1 1.8 2.5 1.8s2.5-.8 2.5-2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop" alt="Safári África do Sul">
+    <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=800&auto=format&fit=crop" alt="Cape Town">
+    <img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=800&auto=format&fit=crop" alt="Winelands">
+  </div>
+  <div class="hero-content">
+    <div class="hero-inner wrap" style="padding:0;">
+      <h1 class="hero-title">Férias na África do Sul</h1>
+      <div class="hero-sub">Felipe e Família &nbsp;|&nbsp; 17 a 27 de julho de 2026</div>
+      <div class="hero-tagline">Roteiro, clima, hotéis, transfers, documentos e dicas diárias</div>
+      <div class="weather-badge"><svg class="ic"><use href="#i-sun"/></svg> Clima ao vivo &nbsp;<span id="weatherUpdatedTag">carregando…</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="mainnav">
+  <div class="navscroll" id="navscroll">
+    <a class="navlink active" data-target="roteiro"><svg class="ic"><use href="#i-map"/></svg>Roteiro</a>
+    <a class="navlink" data-target="clima"><svg class="ic"><use href="#i-sun"/></svg>Clima</a>
+    <a class="navlink" data-target="voos"><svg class="ic"><use href="#i-plane"/></svg>Voos</a>
+    <a class="navlink" data-target="hoteis"><svg class="ic"><use href="#i-bed"/></svg>Hotéis</a>
+    <a class="navlink" data-target="transfers"><svg class="ic"><use href="#i-van"/></svg>Transfers</a>
+    <a class="navlink" data-target="documentos"><svg class="ic"><use href="#i-doc"/></svg>Documentos</a>
+    <a class="navlink" data-target="contatos"><svg class="ic"><use href="#i-phone"/></svg>Contatos</a>
+    <a class="navlink" data-target="dicas"><svg class="ic"><use href="#i-bulb"/></svg>Dicas diárias</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOJE + CLIMA + RESUMO -->
+  <section id="roteiro">
+    <div class="grid-2col">
+
+      <div class="card today-card">
+        <div class="today-media">
+          <img id="todayImg" src="" alt="">
+          <div class="badge" id="todayBadge">Hoje na viagem</div>
+        </div>
+        <div class="today-body">
+          <h3 id="todayCity">—</h3>
+          <div class="today-meta" id="todayMeta"></div>
+          <ul class="today-bullets" id="todayBullets"></ul>
+          <div class="today-note" id="todayNote"></div>
+          <div class="today-full" id="todayFull" style="display:none;"></div>
+          <button class="link-arrow" id="toggleDetails" style="margin-top:10px;">Ver detalhes →</button>
+        </div>
+      </div>
+
+      <div class="card weather-card" id="clima">
+        <div class="weather-nav">
+          <button class="wnav-btn" id="wPrev" onclick="changeWeatherDay(-1)">‹</button>
+          <div>
+            <div class="eyebrow" id="weatherDateLabel">Clima</div>
+            <div class="weather-loc-name" id="weatherCityLabel"></div>
+          </div>
+          <button class="wnav-btn" id="wNext" onclick="changeWeatherDay(1)">›</button>
+        </div>
+        <div class="weather-top">
+          <div class="weather-temp" id="wTemp">--°C</div>
+          <div class="weather-cond" id="wCond">carregando…</div>
+        </div>
+        <div class="weather-grid">
+          <div class="k">Máxima</div><div class="v" id="wMax">--°C</div>
+          <div class="k">Mínima</div><div class="v" id="wMin">--°C</div>
+          <div class="k">Chance de chuva</div><div class="v" id="wRain">--%</div>
+          <div class="k">Vento (meio-dia)</div><div class="v" id="wWind">-- km/h</div>
+        </div>
+        <div class="hourly-strip" id="hourlyStrip"></div>
+        <div class="weather-tip" id="wTip">O clima é atualizado automaticamente conforme o dia do roteiro selecionado.</div>
+        <div class="weather-loc">Fonte: Open-Meteo · atualizado agora</div>
+      </div>
+
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Resumo da viagem</div>
+        <div class="card summary-card">
+          <div class="summary-row"><svg class="ic"><use href="#i-plane"/></svg><div><div class="lbl">Voos</div><div class="val">4 confirmados</div></div></div>
+          <div class="summary-row"><svg class="ic"><use href="#i-bed"/></svg><div><div class="lbl">Hotéis</div><div class="val">4 hospedagens · 9 noites</div></div></div>
+          <div class="summary-row"><svg class="ic"><use href="#i-van"/></svg><div><div class="lbl">Transfers</div><div class="val">Todos privativos</div></div></div>
+          <div class="summary-row"><svg class="ic"><use href="#i-doc"/></svg><div><div class="lbl">Grupo</div><div class="val">4 adultos + 4 crianças</div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- DESTAQUE DO DIA -->
+  <section id="destaque-dia">
+    <div class="eyebrow" style="margin-bottom:10px;">Destaque diário</div>
+    <div class="card highlight-card">
+      <div class="highlight-media">
+        <img id="highlightImg" src="" alt="">
+        <div class="highlight-eyebrow" id="highlightTag">Destaque do dia</div>
+      </div>
+      <div class="highlight-body">
+        <h3 id="highlightTitle">—</h3>
+        <p id="highlightText" style="font-family:'Source Serif 4',serif; font-style:italic; font-size:15px; color:var(--terracotta-deep);"></p>
+        <p id="highlightDesc"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ROTEIRO COMPLETO -->
+  <section id="roteiro-dias">
+    <div class="section-head">
+      <div><div class="eyebrow">Itinerário confirmado</div><h2>Roteiro dia a dia</h2></div>
+    </div>
+    <div class="card" style="padding:6px 20px;" id="daysList"></div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- SOBRE O DESTINO -->
+  <section id="sobre-destino">
+    <div class="section-head"><div><div class="eyebrow">Conheça a viagem</div><h2>Sobre o destino</h2></div></div>
+    <p class="intro-text">A África do Sul reúne, numa só viagem, oceano, montanha, vinhedos e savana. Este roteiro passa por quatro paisagens bem diferentes entre si — a vida urbana e costeira da Cidade do Cabo, os vinhedos das Winelands, a energia de Joanesburgo e o silêncio selvagem de Welgevonden — sempre com conforto e privacidade em cada trecho.</p>
+    <div class="grid-4col" id="legsList"></div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- O QUE SABER ANTES DE IR -->
+  <section id="antes-de-ir">
+    <div class="section-head"><div><div class="eyebrow">Bom saber</div><h2>O que saber antes de ir</h2></div></div>
+    <div class="card know-card">
+      <div class="know-row"><svg class="ic"><use href="#i-globe"/></svg><div><div class="lbl">Idioma</div><div class="val">Inglês é amplamente falado; também há afrikaans e línguas locais.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-doc"/></svg><div><div class="lbl">Moeda</div><div class="val">Rand sul-africano (ZAR). Cartões são amplamente aceitos.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-clock"/></svg><div><div class="lbl">Fuso horário</div><div class="val">5 horas à frente de Brasília, sem horário de verão na África do Sul.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-van"/></svg><div><div class="lbl">Trânsito</div><div class="val">Dirige-se pelo lado esquerdo — todos os deslocamentos do roteiro já são privativos.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-suitcase"/></svg><div><div class="lbl">Eletricidade</div><div class="val">Tomadas tipo M (220–230V) — leve adaptador de três pinos redondos.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-drop"/></svg><div><div class="lbl">Água</div><div class="val">Em caso de dúvida, priorize água mineral lacrada.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">Welgevonden é normalmente divulgada como reserva localizada em região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com profissional de saúde antes da viagem.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-coin"/></svg><div><div class="lbl">Gorjetas</div><div class="val">É praxe deixar entre 10% e 15% em restaurantes, e uma gorjeta para guias e motoristas ao final de cada passeio.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-phone"/></svg><div><div class="lbl">Internet</div><div class="val">Um chip local ou e-SIM facilita a conexão fora dos hotéis, especialmente durante os safáris.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-alert"/></svg><div><div class="lbl">Emergência</div><div class="val">Polícia: 10111. Emergência geral pelo celular: 112. Os contatos privativos da viagem estão na seção Contatos.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-shield"/></svg><div><div class="lbl">Segurança</div><div class="val">Como em qualquer grande cidade, evite exibir objetos de valor. Guias e transfers privativos cobrem todos os trechos do roteiro.</div></div></div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- DICAS DIARIAS -->
+  <section id="dicas">
+    <div class="section-head"><div><div class="eyebrow">Cuidados de quem conhece</div><h2>Dicas diárias</h2></div></div>
+    <div class="card tips-card">
+      <div class="tips-grid" id="tipsList"></div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- VOOS -->
+  <section id="voos">
+    <div class="section-head"><div><div class="eyebrow">Deslocamentos aéreos</div><h2>Voos</h2></div></div>
+    <div class="grid-3col" id="flightsList"></div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- HOTEIS -->
+  <section id="hoteis">
+    <div class="section-head"><div><div class="eyebrow">Hospedagens</div><h2>Hotéis</h2></div></div>
+    <div class="grid-3col" id="hotelsList"></div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- TRANSFERS -->
+  <section id="transfers">
+    <div class="section-head"><div><div class="eyebrow">Deslocamentos terrestres</div><h2>Transfers</h2></div></div>
+    <div class="grid-3col" id="transfersList"></div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- DOCUMENTOS -->
+  <section id="documentos">
+    <div class="section-head"><div><div class="eyebrow">Antes de embarcar</div><h2>Documentos</h2></div></div>
+    <div class="card" style="padding:4px 18px;">
+      <div class="doc-row"><svg class="ic"><use href="#i-passport"/></svg><div><div class="doc-name">Passaporte</div><div class="doc-note">Orientação geral: válido por pelo menos 6 meses após a data de retorno. Confirme a exigência exata junto à companhia aérea antes de viajar.</div></div></div>
+      <div class="doc-row"><svg class="ic"><use href="#i-vaccine"/></svg><div><div class="doc-name">Febre amarela</div><div class="doc-note">A África do Sul exige o Certificado Internacional de Vacinação ou Profilaxia (ICVP) para viajantes provenientes do Brasil. Vacinar com pelo menos 10 dias de antecedência. Confirme a redação oficial vigente antes de viajar.</div></div></div>
+      <div class="doc-row"><svg class="ic"><use href="#i-flag"/></svg><div><div class="doc-name">Declaração de viagem (SATMS)</div><div class="doc-note">Segundo comunicado da SARS, desde 1º de julho de 2026 é obrigatório declarar bens e valores on-line antes de entrar ou sair da África do Sul. Cada pessoa da família faz a própria declaração, até 24h antes do voo. Verifique a exigência vigente na fonte oficial antes de viajar. <a href="https://tools.sars.gov.za/sarsonlinequery/traveller" target="_blank" rel="noopener" style="color:var(--terracotta-deep); font-weight:600;">Preencher a declaração oficial (SARS) →</a></div></div></div>
+      <div class="doc-row"><svg class="ic"><use href="#i-ticket"/></svg><div><div class="doc-name">Vouchers de hotéis e passeios</div><div class="doc-note">Emitidos pela Akilanga DMC e enviados por e-mail à parte.</div></div></div>
+      <div class="doc-row"><svg class="ic"><use href="#i-shield"/></svg><div><div class="doc-name">Seguro viagem</div><div class="doc-note">Confirmar apólice e número de emergência do seguro antes do embarque.</div></div></div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- CONTATOS -->
+  <section id="contatos">
+    <div class="section-head"><div><div class="eyebrow">Sempre por perto</div><h2>Contatos úteis</h2></div></div>
+    <div class="card" style="padding:4px 18px;" id="contactsList"></div>
+  </section>
+
+  <div class="quickbar-desktop">
+    <div class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-ticket"/></svg>Checklist</div>
+    <div class="qbtn" onclick="openMapForToday()"><svg class="ic"><use href="#i-pin"/></svg>Abrir mapa</div>
+    <div class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-doc"/></svg>Documentos</div>
+    <div class="qbtn" onclick="scrollToId('clima')"><svg class="ic"><use href="#i-sun"/></svg>Clima agora</div>
+    <div class="qbtn" onclick="scrollToId('contatos')"><svg class="ic"><use href="#i-phone"/></svg>Contatos úteis</div>
+    <div class="qbtn" onclick="sharePortal()"><svg class="ic"><use href="#i-share"/></svg>Compartilhar</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Férias na África do Sul</div>
+    <div class="footer-sub">Felipe e Família · 17 a 27 de julho de 2026</div>
+    <div class="pattern"></div>
+    <div class="footer-mark"><span class="yd"></span> Roteiro preparado especialmente para esta viagem.</div>
+  </div>
+</footer>
+
+<div class="quickbar-mobile">
+  <button class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-ticket"/></svg>Checklist</button>
+  <button class="qbtn" onclick="openMapForToday()"><svg class="ic"><use href="#i-pin"/></svg>Mapa</button>
+  <button class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-doc"/></svg>Docs</button>
+  <button class="qbtn" onclick="scrollToId('clima')"><svg class="ic"><use href="#i-sun"/></svg>Clima</button>
+  <button class="qbtn" onclick="scrollToId('contatos')"><svg class="ic"><use href="#i-phone"/></svg>Contatos</button>
+  <button class="qbtn" onclick="sharePortal()"><svg class="ic"><use href="#i-share"/></svg>Compartilhar</button>
+</div>
+
+<script>
+/* ===================== DADOS CONFIRMADOS (extraídos dos vouchers Akilanga DMC) ===================== */
+
+const LOCATIONS = {
+  CPT: {name:'Cidade do Cabo', lat:-33.9249, lon:18.4241},
+  CAPEPOINT: {name:'Cabo da Boa Esperança / Hout Bay', lat:-34.3568, lon:18.4740},
+  FRANSCHHOEK: {name:'Winelands (Franschhoek)', lat:-33.9106, lon:19.1197},
+  JNB: {name:'Joanesburgo', lat:-26.1076, lon:28.0567},
+  WEL: {name:'Reserva de Welgevonden', lat:-24.2500, lon:27.8833}
+};
+
+const days = [
+  {n:1, date:'2026-07-17', label:'17 JUL', city:'São Paulo → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
+   desc:'Depois da despedida em Guarulhos, o avião decola rumo ao outro lado do Atlântico, na direção da ponta sul do continente africano. O voo internacional (LA 8060, decolagem às 22h45) atravessa a noite toda — hora de descansar, assistir a um filme ou deixar a expectativa da viagem tomar conta enquanto o Brasil fica para trás e a África do Sul se aproxima, fuso a fuso, quilômetro a quilômetro.',
+   highlight:'A aventura começa: embarque rumo à África do Sul.',
+   bullets:['Embarque 22h45 (voo LA 8060)', 'Voo noturno GRU → CPT', 'Chegada em 18/07 pela manhã'],
+   img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop'},
+  {n:2, date:'2026-07-18', label:'18 JUL', city:'Cape Town', icon:'i-bed', loc:'CPT', wloc:'CPT',
+   desc:'A chegada a Cape Town, às 10h55, já entrega o primeiro cartão-postal da viagem: a silhueta inconfundível da Table Mountain recortando o céu sobre a cidade. Um traslado privativo leva a família direto à orla, para o check-in no Radisson Collection Hotel Waterfront — endereço com vista para o mar e para a montanha ao mesmo tempo. A tarde fica livre para os primeiros passos por Cape Town, sem pressa, só para sentir a cidade e recuperar o fôlego da viagem.',
+   highlight:'Primeira vista da Table Mountain ao chegar à Cidade do Cabo.',
+   bullets:['Chegada 10h55 em Cape Town', 'Traslado privativo ao Radisson', 'Tarde livre na orla'],
+   img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1000&auto=format&fit=crop'},
+  {n:3, date:'2026-07-19', label:'19 JUL', city:'Cape Town', icon:'i-pin', loc:'CPT', wloc:'CAPEPOINT', hourly:true,
+   desc:'Um dos programas mais celebrados da África do Sul começa cedo: em tour privativo guiado em português, o dia atravessa Hout Bay para um passeio de barco até Seal Island (09h15), segue pela estrada litorânea de Chapman\'s Peak — uma das mais bonitas do mundo — até o farol do Cape Point e o extremo do Cabo da Boa Esperança, onde dois oceanos parecem se encontrar. O passeio termina em Boulders Beach, entre colônias de pinguins africanos na areia. Almoço incluso ao longo do caminho.',
+   highlight:'Pinguins selvagens em Boulders Beach — um dos passeios mais fotografados do Cabo.',
+   bullets:['Barco a Seal Island 09h15', 'Chapman\'s Peak e Cape Point', 'Pinguins em Boulders Beach'],
+   img:'https://images.unsplash.com/photo-1580654712603-eb43273aff33?q=80&w=1000&auto=format&fit=crop'},
+  {n:4, date:'2026-07-20', label:'20 JUL', city:'Winelands', icon:'i-grape', loc:'CPT', wloc:'FRANSCHHOEK',
+   desc:'Entre vinhedos, montanhas e casarões de arquitetura cabo-holandesa, o dia é dedicado à charmosa região das Winelands, também em tour privativo. As paradas passam por Stark-Condé (10h), Grande Provence (11h30, com almoço às 13h) e Boschendal (15h30) — cada uma com sua própria degustação, e opções especiais sem álcool preparadas para as crianças em cada parada. Um brinde tranquilo, no ritmo do interior sul-africano.',
+   highlight:'Dia de vinhos premiados entre Franschhoek e Groot Drakenstein.',
+   bullets:['Stark-Condé às 10h', 'Almoço no Grande Provence 13h', 'Boschendal às 15h30'],
+   img:'https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1000&auto=format&fit=crop'},
+  {n:5, date:'2026-07-21', label:'21 JUL', city:'Cape Town', icon:'i-leaf', loc:'CPT', wloc:'CPT',
+   desc:'Um dia inteiro sem compromissos marcados, para explorar Cape Town no próprio tempo da família. O V&A Waterfront pede uma tarde de lojas, cafés e vista para o porto; o teleférico de Table Mountain oferece um panorama de tirar o fôlego, sujeito às condições do dia; e o hotel continua ali, pronto para um respiro a mais entre um passeio e outro. A cidade fica livre para ser descoberta do jeito que a família preferir.',
+   highlight:'Cidade do Cabo no seu próprio ritmo.',
+   bullets:['Dia livre em Cape Town', 'V&A Waterfront e Bo-Kaap', 'Teleférico sujeito ao clima'],
+   img:'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop'},
+  {n:6, date:'2026-07-22', label:'22 JUL', city:'Cape Town → Johannesburgo', icon:'i-plane', loc:'JNB', wloc:'JNB',
+   desc:'Check-out cedo e traslado ao aeroporto (06h00) para um curto voo doméstico (SA 0314, 08h15–10h20) que leva a família de Cape Town a Joanesburgo — a maior cidade do país e a porta de entrada para o safári. Um traslado privativo conduz direto ao The Leonardo, no coração de Sandown, para uma noite de descanso antes da imersão na natureza que começa no dia seguinte.',
+   highlight:'Rumo a Joanesburgo, porta de entrada para o safári.',
+   bullets:['Traslado 06h ao aeroporto', 'Voo SA 0314 · 08h15', 'Chegada em Sandown, JNB'],
+   img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
+  {n:7, date:'2026-07-23', label:'23 JUL', city:'Johannesburgo → Welgevonden', icon:'i-van', loc:'WEL', wloc:'WEL',
+   desc:'A paisagem muda por completo: depois do check-out do The Leonardo, um traslado privativo (07h30) atravessa o Waterberg até o Mhondoro Safari Lodge & Villa, na Reserva de Welgevonden — divulgada como região sem malária e lar de leões, elefantes, búfalos, leopardos e rinocerontes. Após a chegada, a programação de safári será alinhada diretamente pelo lodge, conforme os horários operacionais do dia.',
+   highlight:'Chegada a Welgevonden — o silêncio da savana começa aqui.',
+   bullets:['Traslado 07h30 ao Mhondoro', 'Chegada à Reserva de Welgevonden', 'Programação definida pelo lodge'],
+   img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
+  {n:8, date:'2026-07-24', label:'24 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+   desc:'Um dia inteiro no ritmo da savana, com pensão completa. Estão incluídas duas atividades de safári — os horários exatos são informados pelo lodge conforme a rotina do dia, mas costumam acontecer nos períodos de maior atividade dos animais, ao amanhecer e ao entardecer. Entre uma saída e outra, tempo livre no lodge — piscina, spa ou simplesmente observar o cocho d\'água em frente à suíte.',
+   highlight:'Big Five ao amanhecer, a poucos metros do veículo.',
+   bullets:['Pensão completa no lodge', 'Duas atividades de safári', 'Horários definidos pelo lodge'],
+   img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
+  {n:9, date:'2026-07-25', label:'25 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+   desc:'Mais um dia mergulhado no bush, com guia e tracker especializados em cada saída. Estão incluídas duas atividades de safári, com horários informados pelo lodge. Nenhum game drive se repete: os rastros, os sons e os encontros mudam a cada saída, e é normal perder a conta de quantas espécies diferentes já foram avistadas até aqui. O lodge segue oferecendo pensão completa e todo o conforto para recarregar as energias.',
+   highlight:'Cada game drive é diferente do anterior.',
+   bullets:['Mais um dia de safári', 'Guia e tracker dedicados', 'Pensão completa'],
+   img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1000&auto=format&fit=crop'},
+  {n:10, date:'2026-07-26', label:'26 JUL', city:'Welgevonden → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
+   desc:'Check-out do Mhondoro e traslado até o aeroporto (horário informado no voucher: 11h00, em reconfirmação operacional — o trajeto pode levar cerca de 5h), seguido do voo de volta a Cape Town (SA 0359, 17h30–19h45) — já ao entardecer, com a cidade se acendendo pela janela do avião. A última noite da viagem é no Southern Sun Waterfront, a poucos passos da orla.',
+   highlight:'De volta à Cidade do Cabo para o último capítulo da viagem.',
+   bullets:['Traslado ao aeroporto (em reconfirmação)', 'Voo SA 0359 · 17h30', 'Última noite no Southern Sun'],
+   img:'https://images.unsplash.com/photo-1493707553966-283afac8c358?q=80&w=1000&auto=format&fit=crop'},
+  {n:11, date:'2026-07-27', label:'27 JUL', city:'Cape Town → São Paulo', icon:'i-plane', loc:'CPT', wloc:'CPT',
+   desc:'É hora de fazer as malas pela última vez: check-out do Southern Sun Waterfront e traslado ao aeroporto (13h00) para o voo internacional de volta a São Paulo, às 15h50. Fecha-se o círculo de uma viagem que passou pelo oceano, pelos vinhedos e pela savana.',
+   highlight:'Hora de voltar para casa, com as malas cheias de histórias.',
+   bullets:['Check-out do Southern Sun', 'Traslado ao aeroporto às 13h', 'Voo LA 8061 · 15h50'],
+   img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'}
+];
+
+const legs = [
+  {name:'Cidade do Cabo', img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=600&auto=format&fit=crop',
+   text:'Entre o Atlântico e a Table Mountain, ponto de partida e retorno da viagem — praias, gastronomia e charme costeiro.'},
+  {name:'Winelands', img:'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=600&auto=format&fit=crop',
+   text:'A meia hora do Cabo, Franschhoek e Stellenbosch guardam algumas das vinícolas mais premiadas do país.'},
+  {name:'Joanesburgo', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=600&auto=format&fit=crop',
+   text:'Parada rápida na maior cidade do país e porta de entrada para o safári em Welgevonden.'},
+  {name:'Welgevonden', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
+   text:'Reserva privada no Waterberg, divulgada como região sem malária, lar dos Big Five, vivenciados em safáris guiados duas vezes ao dia.'}
+];
+
+const packingTips = [
+  {txt:'Documentos em uma pasta só: passaporte, declaração SATMS, certificado de febre amarela e apólice do seguro.', img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Roupas em camadas — o inverno sul-africano é seco, com manhãs e noites frias e tardes amenas.', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Binóculo e câmera com zoom são essenciais para os safáris em Welgevonden.', img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Protetor solar e óculos de sol, mesmo no inverno — o sol do Cabo é forte durante o dia.', img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Adaptador de tomada tipo M (três pinos redondos) — os plugues sul-africanos são diferentes dos brasileiros.', img:'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Uma muda de roupa na bagagem de mão, por causa da conexão em Joanesburgo.', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Casaco corta-vento — Cidade do Cabo costuma ser ventosa, especialmente perto do mar.', img:'https://images.unsplash.com/photo-1580654712603-eb43273aff33?q=80&w=1000&auto=format&fit=crop'}
+];
+
+const flights = [
+  {route:'São Paulo (GRU) → Cape Town (CPT)', date:'17 jul 2026', dep:'22:45', arr:'10:55 (18 jul)', num:'LA 8060'},
+  {route:'Cape Town (CPT) → Johannesburgo (JNB)', date:'22 jul 2026', dep:'08:15', arr:'10:20', num:'SA 0314'},
+  {route:'Johannesburgo (JNB) → Cape Town (CPT)', date:'26 jul 2026', dep:'17:30', arr:'19:45', num:'SA 0359'},
+  {route:'Cape Town (CPT) → São Paulo (GRU)', date:'27 jul 2026', dep:'15:50', arr:'20:00', num:'LA 8061'}
+];
+
+const hotels = [
+  {name:'Radisson Collection Hotel Waterfront', url:'https://www.radissonhotels.com/en-us/hotels/radisson-collection-cape-town-waterfront', city:'Cape Town', dates:'18 a 22 de julho (4 noites)', regime:'Café da manhã incluso', addr:'100 Beach Road, Granger Bay, Cape Town', phone:'+27214413000'},
+  {name:'The Leonardo', url:'https://www.legacyhotels.co.za/the-leonardo', city:'Sandown, Johannesburgo', dates:'22 a 23 de julho (1 noite)', regime:'Café da manhã incluso', addr:'75 Maude Street, Sandown, Johannesburgo', phone:'+27875360000'},
+  {name:'Mhondoro Safari Lodge & Villa', url:'https://mhondoro.com/', city:'Reserva de Welgevonden, Vaalwater', dates:'23 a 26 de julho (3 noites)', regime:'Pensão completa + 2 safáris/dia', addr:'Welgevonden Game Reserve, Vaalwater', phone:'+27219751008'},
+  {name:'Southern Sun Waterfront', url:'https://www.southernsun.com/southern-sun-waterfront-cape-town', city:'Cape Town', dates:'26 a 27 de julho (1 noite)', regime:'Café da manhã incluso', addr:'1 Lower Buitengracht, Cape Town', phone:'+27214094000'}
+];
+
+const transfers = [
+  {route:'Aeroporto de Cape Town → Radisson Waterfront', date:'18 jul', time:'chegada 10h55', guide:'José', phone:'+27683727498'},
+  {route:'Radisson Waterfront → Aeroporto de Cape Town', date:'22 jul', time:'06h00', guide:'José', phone:'+27683727498'},
+  {route:'Aeroporto O.R. Tambo (JNB) → The Leonardo', date:'22 jul', time:'chegada do voo', guide:'Milton', phone:'+27618739873'},
+  {route:'The Leonardo → Mhondoro Safari Lodge', date:'23 jul', time:'07h30', guide:'Azafo', phone:'+27781999097'},
+  {route:'Mhondoro Safari Lodge → Aeroporto O.R. Tambo (JNB)', date:'26 jul', time:'Horário informado no voucher: 11h00. Em reconfirmação operacional com o receptivo (trajeto pode levar cerca de 5h).', guide:'Azafo', phone:'+27781999097'},
+  {route:'Aeroporto de Cape Town → Southern Sun Waterfront', date:'26 jul', time:'chegada do voo', guide:'José', phone:'+27683727498'},
+  {route:'Southern Sun Waterfront → Aeroporto de Cape Town', date:'27 jul', time:'13h00', guide:'José', phone:'+27683727498'}
+];
+
+const contacts = [
+  {role:'Transfers Cidade do Cabo · dias 18, 22, 26 e 27', name:'José', phone:'+27683727498'},
+  {role:'Guia dos passeios · dias 19 e 20', name:'Hermínio', phone:'+27632174444'},
+  {role:'Transfer de chegada em Joanesburgo · dia 22', name:'Milton', phone:'+27618739873'},
+  {role:'Transfers para o Mhondoro · dias 23 e 26', name:'Azafo', phone:'+27781999097'},
+  {role:'Emergência 24h · Akilanga DMC', name:'Central de atendimento', phone:'+27826519600'},
+  {role:'Radisson Collection Waterfront', name:'Recepção do hotel', phone:'+27214413000'},
+  {role:'The Leonardo, Sandown', name:'Recepção do hotel', phone:'+27875360000'},
+  {role:'Mhondoro Safari Lodge', name:'Recepção do lodge', phone:'+27219751008'},
+  {role:'Southern Sun Waterfront', name:'Recepção do hotel', phone:'+27214094000'}
+];
+
+const tipsByDay = [
+  {date:'19 jul · Cape Town', items:[
+    {tag:'Passeio', txt:'Cabo da Boa Esperança em tour privativo: barco a Seal Island saindo de Hout Bay (09h15), Chapman\'s Peak, funicular do Cape Point e Boulders Beach.'},
+    {tag:'Restaurantes', txt:'Almoço incluso no passeio, em local definido pelo guia no dia (bebidas não inclusas).'},
+    {tag:'Roupas', txt:'Vento forte é praticamente garantido em Cape Point e no trecho de barco — corta-vento, casaco extra e calçado fechado fazem toda diferença.'},
+    {tag:'Hidratação', txt:'Leve água para todos: o passeio é longo e o vento costuma disfarçar a sede, principalmente para as crianças.'},
+    {tag:'Sujeito ao clima', txt:'Chapman\'s Peak pode fechar por vento forte ou chuva — o guia ajusta o trajeto se necessário.'}
+  ]},
+  {date:'20 jul · Winelands', items:[
+    {tag:'Passeio', txt:'Degustações em Stark-Condé (10h), Grande Provence (11h30) e Boschendal (15h30).'},
+    {tag:'Restaurantes', txt:'Almoço confirmado no The Oak Restaurant, dentro do Grande Provence, às 13h — menu de 2 pratos, bebidas à parte.'},
+    {tag:'Crianças', txt:'Experiências não alcoólicas confirmadas em cada vinícola: rooibos e chocolate em Stark-Condé, harmonização com nougat em Grande Provence, e suco de uva em Boschendal.'},
+    {tag:'Roupas', txt:'Nas Winelands a temperatura varia bastante entre manhã e tarde — uma camada extra fácil de tirar e guardar é o ideal.'},
+    {tag:'Dica prática', txt:'Reserve tempo de deslocamento entre as vinícolas e hidrate-se entre uma degustação e outra.'}
+  ]},
+  {date:'21 jul · Cape Town', items:[
+    {tag:'Sugestão', txt:'Dia livre, sem reserva — ideias: V&A Waterfront e o bairro colorido do Bo-Kaap.'},
+    {tag:'Sujeito ao clima', txt:'Teleférico de Table Mountain — abre apenas com boas condições de vento e visibilidade, sem horário garantido.'},
+    {tag:'Sugestão', txt:'Restaurantes não reservados: o V&A Waterfront reúne opções do casual ao gastronômico, de frutos do mar a cozinha sul-africana contemporânea.'},
+    {tag:'Roupas', txt:'Mesmo em dia livre, leve corta-vento — o vento no Cabo muda de intensidade a qualquer hora do dia.'}
+  ]},
+  {date:'22 jul · Cape Town → Joanesburgo', items:[
+    {tag:'Alerta', txt:'Traslado ao aeroporto às 06h — deixar as malas prontas na véspera.'},
+    {tag:'Roupas', txt:'Joanesburgo tende a ser mais seca e com noites frias no inverno — vale uma camada extra para a chegada.'}
+  ]},
+  {date:'23 jul · Rumo ao safári', items:[
+    {tag:'Roupas', txt:'As manhãs no bush são as mais frias do roteiro, podendo chegar perto de 0°C ao amanhecer — casaco pesado, gorro e luvas valem a pena nos primeiros game drives.'},
+    {tag:'Hidratação', txt:'Leve uma garrafa de água própria; os lodges normalmente oferecem recarga e bebidas quentes nas saídas.'}
+  ]},
+  {date:'24–25 jul · Welgevonden', items:[
+    {tag:'Passeio', txt:'Dois safáris por dia, ao amanhecer e ao entardecer, com guia e tracker especializados.'},
+    {tag:'Roupas', txt:'Tons neutros/terrosos, calçado fechado e camadas — frio cortante de manhã, ameno à tarde, e vento constante nos veículos abertos.'},
+    {tag:'Hidratação', txt:'Leve água nos game drives, mesmo com o lodge oferecendo café e chá quente na saída.'},
+    {tag:'Crianças', txt:'Vale perguntar ao lodge sobre atividades específicas para os pequenos fora dos horários de safári.'}
+  ]},
+  {date:'26 jul · Retorno a Cape Town', items:[
+    {tag:'Alerta', txt:'Voo à noite (17h30–19h45) — chegada ao hotel já tarde.'},
+    {tag:'Roupas', txt:'Cape Town esfria rápido à noite perto do mar — leve um casaco para o desembarque.'}
+  ]},
+  {date:'27 jul · Retorno ao Brasil', items:[
+    {tag:'Dica prática', txt:'Transfer final às 13h — reconfirmar com José 48h antes.'}
+  ]}
+];
+
+/* ===================== HELPERS ===================== */
+
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if(el){ const y = el.getBoundingClientRect().top + window.scrollY - 64; window.scrollTo({top:y, behavior:'smooth'}); }
+}
+function telLink(phone){ return `tel:${phone}`; }
+function mapsLink(addr){ return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`; }
+function flightStatusLink(num){ return `https://www.google.com/search?q=${encodeURIComponent(num + ' flight status')}`; }
+function svgIcon(id){ return `<svg class="ic"><use href="#${id}"/></svg>`; }
+function daysUntil(dateStr){ return Math.ceil((new Date(dateStr) - new Date()) / 86400000); }
+
+/* ===================== RENDER ===================== */
+
+function renderDays(){
+  document.getElementById('daysList').innerHTML = days.map(d => `
+    <div class="day-row">
+      <div class="day-badge"><div class="num">${d.n}</div><div class="date">${d.label}</div></div>
+      <div class="day-ic">${svgIcon(d.icon)}</div>
+      <div class="day-content"><div class="route">${d.city}</div><div class="desc">${d.desc}</div></div>
+    </div>`).join('');
+}
+
+function renderLegs(){
+  document.getElementById('legsList').innerHTML = legs.map(l => `
+    <div class="card leg-card">
+      <div class="leg-media"><img src="${l.img}" alt="${l.name}"></div>
+      <div class="leg-body"><h3>${l.name}</h3><p>${l.text}</p></div>
+    </div>`).join('');
+}
+
+function renderTips(){
+  document.getElementById('tipsList').innerHTML = tipsByDay.map(grp => `
+    <div class="tip-day">
+      <div class="tip-day-label">${grp.date}</div>
+      ${grp.items.map(it => `<div class="tip-line"><span class="tag">${it.tag}</span><span>${it.txt}</span></div>`).join('')}
+    </div>`).join('');
+}
+
+function renderFlights(){
+  document.getElementById('flightsList').innerHTML = flights.map(f => `
+    <div class="card item-card">
+      <div class="item-top">
+        <div><div class="item-title">${f.route}</div><div class="item-sub">Voo ${f.num} · ${f.date}</div></div>
+        <a class="status-link" href="${flightStatusLink(f.num)}" target="_blank" rel="noopener">Status em tempo real</a>
+      </div>
+      <div class="item-details">
+        <div class="k">Partida</div><div class="v">${f.dep}</div>
+        <div class="k">Chegada</div><div class="v">${f.arr}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderHotels(){
+  document.getElementById('hotelsList').innerHTML = hotels.map(h => `
+    <div class="card item-card">
+      <div class="item-top">
+        <div><div class="item-title"><a href="${h.url}" target="_blank" rel="noopener">${h.name}</a></div><div class="item-sub">${h.city} · ${h.dates}</div></div>
+      </div>
+      <div class="item-details">
+        <div class="k">Regime</div><div class="v">${h.regime}</div>
+        <div class="k">Endereço</div><div class="v"><a href="${mapsLink(h.addr)}" target="_blank" rel="noopener">${h.addr}</a></div>
+        <div class="k">Telefone</div><div class="v"><a href="${telLink(h.phone)}">${h.phone.replace('+27','+27 ')}</a></div>
+      </div>
+    </div>`).join('');
+}
+
+function renderTransfers(){
+  document.getElementById('transfersList').innerHTML = transfers.map(t => `
+    <div class="card item-card">
+      <div class="item-top">
+        <div><div class="item-title">${t.route}</div><div class="item-sub">${t.date}</div></div>
+      </div>
+      <div class="item-details">
+        <div class="k">Horário</div><div class="v">${t.time}</div>
+        <div class="k">Guia</div><div class="v"><a href="${telLink(t.phone)}">${t.guide} · ${t.phone.replace('+27','+27 ')}</a></div>
+      </div>
+    </div>`).join('');
+}
+
+function renderContacts(){
+  document.getElementById('contactsList').innerHTML = contacts.map(c => `
+    <div class="contact-row">
+      <div><div class="contact-role">${c.role}</div><div class="contact-name">${c.name}</div></div>
+      <a class="contact-phone" href="${telLink(c.phone)}">${c.phone.replace('+27','+27 ')}</a>
+    </div>`).join('');
+}
+
+/* ===================== HOJE NA VIAGEM + DESTAQUE (dinâmicos, mudam todo dia) ===================== */
+
+function getTripState(){
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0,10);
+  const match = days.find(d => d.date === todayStr);
+  if(match) return {mode:'live', day:match};
+  const first = new Date(days[0].date);
+  if(now < first) return {mode:'countdown', day:days[0], daysLeft: daysUntil(days[0].date)};
+  return {mode:'past', day:days[days.length-1]};
+}
+
+function renderToday(state){
+  const detailsBtn = document.getElementById('toggleDetails');
+  const fullEl = document.getElementById('todayFull');
+  fullEl.style.display = 'none';
+  detailsBtn.textContent = 'Ver detalhes →';
+
+  if(state.mode === 'countdown'){
+    const tipIndex = Math.max(0, state.daysLeft) % packingTips.length;
+    const tip = packingTips[tipIndex];
+    document.getElementById('todayImg').src = tip.img;
+    document.getElementById('todayBadge').textContent = `Faltam ${state.daysLeft} dias`;
+    document.getElementById('todayCity').textContent = 'Hora de arrumar as malas';
+    document.getElementById('todayMeta').innerHTML = `${svgIcon('i-suitcase')}&nbsp;Dica de bagagem do dia`;
+    document.getElementById('todayBullets').innerHTML = `<li>${tip.txt}</li>`;
+    document.getElementById('todayNote').textContent = `A viagem começa em ${state.daysLeft} dias, em ${new Date(days[0].date).toLocaleDateString('pt-BR',{day:'2-digit',month:'long'})}.`;
+    fullEl.textContent = '';
+    detailsBtn.style.display = 'none';
+  } else {
+    const d = state.day;
+    document.getElementById('todayImg').src = d.img;
+    document.getElementById('todayBadge').textContent = state.mode==='live' ? 'Hoje na viagem' : 'Roteiro da viagem';
+    document.getElementById('todayCity').textContent = d.city;
+    document.getElementById('todayMeta').innerHTML = `${svgIcon('i-doc')}&nbsp;Dia ${d.n} · ${d.label}`;
+    document.getElementById('todayBullets').innerHTML = d.bullets.map(b => `<li>${b}</li>`).join('');
+    document.getElementById('todayNote').textContent = state.mode==='live' ? 'Aproveite mais um dia especial na África do Sul.' : 'Confira o roteiro completo mais abaixo.';
+    fullEl.textContent = d.desc;
+    detailsBtn.style.display = 'inline-flex';
+  }
+}
+
+document.getElementById('toggleDetails').addEventListener('click', () => {
+  const fullEl = document.getElementById('todayFull');
+  const btn = document.getElementById('toggleDetails');
+  const open = fullEl.style.display === 'block';
+  fullEl.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? 'Ver detalhes →' : 'Ver menos ←';
+});
+
+function renderHighlight(state){
+  const d = state.day;
+  document.getElementById('highlightImg').src = d.img;
+  document.getElementById('highlightTag').textContent = state.mode==='countdown' ? 'Prévia da viagem' : `Dia ${d.n} · ${d.label}`;
+  document.getElementById('highlightTitle').textContent = d.city;
+  document.getElementById('highlightText').textContent = d.highlight;
+  document.getElementById('highlightDesc').textContent = d.desc;
+}
+
+/* ===================== CLIMA POR DIA DO ROTEIRO (Open-Meteo, sem chave de API) ===================== */
+
+let weatherViewIndex = 0; // índice em `days` sendo exibido no card de clima
+
+function dayIndexFromDate(dateStr){
+  const idx = days.findIndex(d => d.date === dateStr);
+  return idx === -1 ? 0 : idx;
+}
+
+function initialWeatherIndex(state){
+  if(state.mode === 'countdown' || state.mode === 'live') return dayIndexFromDate(state.day.date);
+  return days.length - 1;
+}
+
+function changeWeatherDay(delta){
+  weatherViewIndex = Math.min(days.length - 1, Math.max(0, weatherViewIndex + delta));
+  loadWeatherForIndex(weatherViewIndex);
+}
+
+async function loadWeatherForIndex(idx){
+  const day = days[idx];
+  const loc = LOCATIONS[day.wloc || day.loc];
+  const todayStr = new Date().toISOString().slice(0,10);
+  const isToday = day.date === todayStr;
+
+  document.getElementById('weatherCityLabel').textContent = loc.name;
+  const dateLabel = new Date(day.date + 'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short', day:'2-digit', month:'short'});
+  document.getElementById('weatherDateLabel').textContent = isToday ? `Hoje · ${dateLabel}` : `Previsão · ${dateLabel}`;
+  document.getElementById('wPrev').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  document.getElementById('wNext').style.visibility = idx === days.length - 1 ? 'hidden' : 'visible';
+  document.getElementById('wCond').textContent = 'carregando…';
+  document.getElementById('hourlyStrip').classList.remove('show');
+
+  try{
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current_weather=true&forecast_days=16&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=temperature_2m,weathercode&timezone=auto`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const dIdx = data.daily.time.indexOf(day.date);
+
+    if(dIdx === -1){
+      document.getElementById('wTemp').textContent = '—';
+      document.getElementById('wCond').textContent = 'Fora do período de previsão (disponível a partir de ~16 dias antes)';
+      document.getElementById('wMax').textContent = '—';
+      document.getElementById('wMin').textContent = '—';
+      document.getElementById('wRain').textContent = '—';
+      document.getElementById('wWind').textContent = '—';
+      document.getElementById('weatherUpdatedTag').textContent = 'sem previsão ainda';
+      return;
+    }
+
+    const max = Math.round(data.daily.temperature_2m_max[dIdx]);
+    const min = Math.round(data.daily.temperature_2m_min[dIdx]);
+    const rain = data.daily.precipitation_probability_max[dIdx];
+
+    // vento e código de condição ao meio-dia, via série horária
+    const noonKey = `${day.date}T12:00`;
+    const hIdx = data.hourly.time.indexOf(noonKey);
+    const noonCode = hIdx !== -1 ? data.hourly.weathercode[hIdx] : null;
+    const noonTemp = hIdx !== -1 ? Math.round(data.hourly.temperature_2m[hIdx]) : null;
+
+    if(isToday && data.current_weather){
+      document.getElementById('wTemp').textContent = Math.round(data.current_weather.temperature) + '°C';
+      document.getElementById('wCond').textContent = weatherCodeToText(data.current_weather.weathercode);
+      document.getElementById('wWind').textContent = Math.round(data.current_weather.windspeed) + ' km/h';
+    } else {
+      document.getElementById('wTemp').textContent = (noonTemp!==null ? noonTemp : max) + '°C';
+      document.getElementById('wCond').textContent = weatherCodeToText(noonCode !== null ? noonCode : 0);
+      document.getElementById('wWind').textContent = '—';
+    }
+    document.getElementById('wMax').textContent = max + '°C';
+    document.getElementById('wMin').textContent = min + '°C';
+    document.getElementById('wRain').textContent = rain + '%';
+    document.getElementById('weatherUpdatedTag').textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+
+    // faixa horária para dias de barco / Cabo da Boa Esperança / safári
+    if(day.hourly){
+      const slots = [['07:00','Manhã'], ['13:00','Meio-dia'], ['18:00','Entardecer']];
+      const strip = document.getElementById('hourlyStrip');
+      strip.innerHTML = slots.map(([hh,label]) => {
+        const key = `${day.date}T${hh}`;
+        const i = data.hourly.time.indexOf(key);
+        const t = i !== -1 ? Math.round(data.hourly.temperature_2m[i]) + '°C' : '—';
+        return `<div class="hourly-item"><div class="hlabel">${label}</div><div class="htemp">${t}</div></div>`;
+      }).join('');
+      strip.classList.add('show');
+    }
+  }catch(e){
+    document.getElementById('wCond').textContent = 'indisponível offline';
+    document.getElementById('weatherUpdatedTag').textContent = 'sem conexão';
+  }
+}
+
+function weatherCodeToText(code){
+  const map = {0:'Céu limpo',1:'Poucas nuvens',2:'Parcialmente nublado',3:'Nublado',45:'Neblina',48:'Neblina',51:'Garoa leve',61:'Chuva leve',63:'Chuva moderada',65:'Chuva forte',71:'Neve leve',80:'Pancadas de chuva',95:'Tempestade'};
+  return map[code] || 'Condição variável';
+}
+
+/* ===================== AÇÕES RÁPIDAS ===================== */
+
+function openMapForToday(){
+  const loc = LOCATIONS[days[weatherViewIndex].wloc || 'CPT'];
+  window.open(mapsLink(loc.name + ', África do Sul'), '_blank');
+}
+function sharePortal(){
+  if(navigator.share){
+    navigator.share({title:'Férias na África do Sul', text:'Portal da viagem — Família Gomes', url:window.location.href}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copiado!'));
+  }
+}
+
+/* ===================== NAV ===================== */
+
+document.querySelectorAll('.navlink').forEach(link => {
+  link.addEventListener('click', () => {
+    scrollToId(link.dataset.target);
+    document.querySelectorAll('.navlink').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+/* ===================== INIT ===================== */
+
+const tripState = getTripState();
+renderDays();
+renderLegs();
+renderTips();
+renderFlights();
+renderHotels();
+renderTransfers();
+renderContacts();
+renderToday(tripState);
+renderHighlight(tripState);
+weatherViewIndex = initialWeatherIndex(tripState);
+loadWeatherForIndex(weatherViewIndex);
+</script>
+
+</body>
+</html>
