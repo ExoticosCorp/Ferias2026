@@ -342,7 +342,7 @@
   <!-- SOBRE O DESTINO -->
   <section id="sobre-destino">
     <div class="section-head"><div><div class="eyebrow">Conheça a viagem</div><h2>Sobre o destino</h2></div></div>
-    <p class="intro-text">A África do Sul reúne, numa só viagem, oceano, montanha, vinhedos e savana. Este roteiro passa por quatro paisagens bem diferentes entre si — a vida urbana e costeira da Cidade do Cabo, os vinhedos das Winelands, a energia de Joanesburgo e o silêncio selvagem de Welgevonden — sempre com conforto e privacidade em cada trecho.</p>
+    <p class="intro-text">A África do Sul reúne, numa só viagem, oceano, montanha, vinhedos e savana. Este roteiro passa por quatro paisagens bem diferentes entre si — a vida urbana e costeira da Cidade do Cabo, os vinhedos das Winelands, a energia de Joanesburgo e o silêncio selvagem de Madikwe — sempre com conforto e privacidade em cada trecho.</p>
     <div class="grid-4col" id="legsList"></div>
   </section>
 
@@ -358,7 +358,7 @@
       <div class="know-row"><svg class="ic"><use href="#i-van"/></svg><div><div class="lbl">Trânsito</div><div class="val">Dirige-se pelo lado esquerdo — todos os deslocamentos do roteiro já são privativos.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-suitcase"/></svg><div><div class="lbl">Eletricidade</div><div class="val">Tomadas tipo M (220–230V) — leve adaptador de três pinos redondos.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-drop"/></svg><div><div class="lbl">Água</div><div class="val">Em caso de dúvida, priorize água mineral lacrada.</div></div></div>
-      <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">Welgevonden é normalmente divulgada como reserva localizada em região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com profissional de saúde antes da viagem.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">Madikwe é normalmente divulgada como reserva localizada em região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com profissional de saúde antes da viagem.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-coin"/></svg><div><div class="lbl">Gorjetas</div><div class="val">É praxe deixar entre 10% e 15% em restaurantes, e uma gorjeta para guias e motoristas ao final de cada passeio.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-phone"/></svg><div><div class="lbl">Internet</div><div class="val">Um chip local ou e-SIM facilita a conexão fora dos hotéis, especialmente durante os safáris.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-alert"/></svg><div><div class="lbl">Emergência</div><div class="val">Polícia: 10111. Emergência geral pelo celular: 112. Os contatos privativos da viagem estão na seção Contatos.</div></div></div>
@@ -459,7 +459,7 @@ const LOCATIONS = {
   CAPEPOINT: {name:'Cabo da Boa Esperança / Hout Bay', lat:-34.3568, lon:18.4740},
   FRANSCHHOEK: {name:'Winelands (Franschhoek)', lat:-33.9106, lon:19.1197},
   JNB: {name:'Joanesburgo', lat:-26.1076, lon:28.0567},
-  WEL: {name:'Reserva de Welgevonden', lat:-24.2500, lon:27.8833}
+  WEL: {name:'Reserva de Madikwe', lat:-24.7500, lon:26.2833}
 };
 
 const days = [
@@ -493,22 +493,22 @@ const days = [
    highlight:'Rumo a Joanesburgo, porta de entrada para o safári.',
    bullets:['Traslado 06h ao aeroporto', 'Voo SA 0314 · 08h15', 'Chegada em Sandown, JNB'],
    img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
-  {n:7, date:'2026-07-23', label:'23 JUL', city:'Johannesburgo → Welgevonden', icon:'i-van', loc:'WEL', wloc:'WEL',
-   desc:'A paisagem muda por completo: depois do check-out do The Leonardo, um traslado privativo (07h30) atravessa o Waterberg até o Mhondoro Safari Lodge & Villa, na Reserva de Welgevonden — divulgada como região sem malária e lar de leões, elefantes, búfalos, leopardos e rinocerontes. Após a chegada, a programação de safári será alinhada diretamente pelo lodge, conforme os horários operacionais do dia.',
-   highlight:'Chegada a Welgevonden — o silêncio da savana começa aqui.',
-   bullets:['Traslado 07h30 ao Mhondoro', 'Chegada à Reserva de Welgevonden', 'Programação definida pelo lodge'],
+  {n:7, date:'2026-07-23', label:'23 JUL', city:'Johannesburgo → Madikwe', icon:'i-van', loc:'WEL', wloc:'WEL',
+   desc:'A paisagem muda por completo: depois do check-out do The Leonardo, um traslado privativo (07h30) segue rumo ao noroeste do país até o Mhondoro Safari Lodge & Villa, na Reserva de Madikwe — divulgada como região sem malária e lar de leões, elefantes, búfalos, leopardos e rinocerontes. Após a chegada, a programação de safári será alinhada diretamente pelo lodge, conforme os horários operacionais do dia.',
+   highlight:'Chegada a Madikwe — o silêncio da savana começa aqui.',
+   bullets:['Traslado 07h30 ao Mhondoro', 'Chegada à Reserva de Madikwe', 'Programação definida pelo lodge'],
    img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
-  {n:8, date:'2026-07-24', label:'24 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+  {n:8, date:'2026-07-24', label:'24 JUL', city:'Reserva de Madikwe', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
    desc:'Um dia inteiro no ritmo da savana, com pensão completa. Estão incluídas duas atividades de safári — os horários exatos são informados pelo lodge conforme a rotina do dia, mas costumam acontecer nos períodos de maior atividade dos animais, ao amanhecer e ao entardecer. Entre uma saída e outra, tempo livre no lodge — piscina, spa ou simplesmente observar o cocho d\'água em frente à suíte.',
    highlight:'Big Five ao amanhecer, a poucos metros do veículo.',
    bullets:['Pensão completa no lodge', 'Duas atividades de safári', 'Horários definidos pelo lodge'],
    img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
-  {n:9, date:'2026-07-25', label:'25 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+  {n:9, date:'2026-07-25', label:'25 JUL', city:'Reserva de Madikwe', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
    desc:'Mais um dia mergulhado no bush, com guia e tracker especializados em cada saída. Estão incluídas duas atividades de safári, com horários informados pelo lodge. Nenhum game drive se repete: os rastros, os sons e os encontros mudam a cada saída, e é normal perder a conta de quantas espécies diferentes já foram avistadas até aqui. O lodge segue oferecendo pensão completa e todo o conforto para recarregar as energias.',
    highlight:'Cada game drive é diferente do anterior.',
    bullets:['Mais um dia de safári', 'Guia e tracker dedicados', 'Pensão completa'],
    img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1000&auto=format&fit=crop'},
-  {n:10, date:'2026-07-26', label:'26 JUL', city:'Welgevonden → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
+  {n:10, date:'2026-07-26', label:'26 JUL', city:'Madikwe → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
    desc:'Check-out do Mhondoro e traslado até o aeroporto (horário informado no voucher: 11h00, em reconfirmação operacional — o trajeto pode levar cerca de 5h), seguido do voo de volta a Cape Town (SA 0359, 17h30–19h45) — já ao entardecer, com a cidade se acendendo pela janela do avião. A última noite da viagem é no Southern Sun Waterfront, a poucos passos da orla.',
    highlight:'De volta à Cidade do Cabo para o último capítulo da viagem.',
    bullets:['Traslado ao aeroporto (em reconfirmação)', 'Voo SA 0359 · 17h30', 'Última noite no Southern Sun'],
@@ -526,15 +526,15 @@ const legs = [
   {name:'Winelands', img:'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=600&auto=format&fit=crop',
    text:'A meia hora do Cabo, Franschhoek e Stellenbosch guardam algumas das vinícolas mais premiadas do país.'},
   {name:'Joanesburgo', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=600&auto=format&fit=crop',
-   text:'Parada rápida na maior cidade do país e porta de entrada para o safári em Welgevonden.'},
-  {name:'Welgevonden', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
-   text:'Reserva privada no Waterberg, divulgada como região sem malária, lar dos Big Five, vivenciados em safáris guiados duas vezes ao dia.'}
+   text:'Parada rápida na maior cidade do país e porta de entrada para o safári em Madikwe.'},
+  {name:'Madikwe', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
+   text:'Reserva privada em Madikwe, divulgada como região sem malária, lar dos Big Five, vivenciados em safáris guiados duas vezes ao dia.'}
 ];
 
 const packingTips = [
   {txt:'Documentos em uma pasta só: passaporte, declaração SATMS, certificado de febre amarela e apólice do seguro.', img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Roupas em camadas — o inverno sul-africano é seco, com manhãs e noites frias e tardes amenas.', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
-  {txt:'Binóculo e câmera com zoom são essenciais para os safáris em Welgevonden.', img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Binóculo e câmera com zoom são essenciais para os safáris em Madikwe.', img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Protetor solar e óculos de sol, mesmo no inverno — o sol do Cabo é forte durante o dia.', img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Adaptador de tomada tipo M (três pinos redondos) — os plugues sul-africanos são diferentes dos brasileiros.', img:'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Uma muda de roupa na bagagem de mão, por causa da conexão em Joanesburgo.', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
@@ -551,7 +551,7 @@ const flights = [
 const hotels = [
   {name:'Radisson Collection Hotel Waterfront', url:'https://www.radissonhotels.com/en-us/hotels/radisson-collection-cape-town-waterfront', city:'Cape Town', dates:'18 a 22 de julho (4 noites)', regime:'Café da manhã incluso', addr:'100 Beach Road, Granger Bay, Cape Town', phone:'+27214413000'},
   {name:'The Leonardo', url:'https://www.legacyhotels.co.za/the-leonardo', city:'Sandown, Johannesburgo', dates:'22 a 23 de julho (1 noite)', regime:'Café da manhã incluso', addr:'75 Maude Street, Sandown, Johannesburgo', phone:'+27875360000'},
-  {name:'Mhondoro Safari Lodge & Villa', url:'https://mhondoro.com/', city:'Reserva de Welgevonden, Vaalwater', dates:'23 a 26 de julho (3 noites)', regime:'Pensão completa + 2 safáris/dia', addr:'Welgevonden Game Reserve, Vaalwater', phone:'+27219751008'},
+  {name:'Mhondoro Safari Lodge & Villa', url:'https://mhondoro.com/', city:'Reserva de Madikwe, North West', dates:'23 a 26 de julho (3 noites)', regime:'Pensão completa + 2 safáris/dia', addr:'Madikwe Game Reserve, North West', phone:'+27219751008'},
   {name:'Southern Sun Waterfront', url:'https://www.southernsun.com/southern-sun-waterfront-cape-town', city:'Cape Town', dates:'26 a 27 de julho (1 noite)', regime:'Café da manhã incluso', addr:'1 Lower Buitengracht, Cape Town', phone:'+27214094000'}
 ];
 
@@ -606,7 +606,7 @@ const tipsByDay = [
     {tag:'Roupas', txt:'As manhãs no bush são as mais frias do roteiro, podendo chegar perto de 0°C ao amanhecer — casaco pesado, gorro e luvas valem a pena nos primeiros game drives.'},
     {tag:'Hidratação', txt:'Leve uma garrafa de água própria; os lodges normalmente oferecem recarga e bebidas quentes nas saídas.'}
   ]},
-  {date:'24–25 jul · Welgevonden', items:[
+  {date:'24–25 jul · Madikwe', items:[
     {tag:'Passeio', txt:'Dois safáris por dia, ao amanhecer e ao entardecer, com guia e tracker especializados.'},
     {tag:'Roupas', txt:'Tons neutros/terrosos, calçado fechado e camadas — frio cortante de manhã, ameno à tarde, e vento constante nos veículos abertos.'},
     {tag:'Hidratação', txt:'Leve água nos game drives, mesmo com o lodge oferecendo café e chá quente na saída.'},
