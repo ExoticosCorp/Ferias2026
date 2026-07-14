@@ -125,6 +125,31 @@
 
   /* O QUE SABER */
   .know-card{padding:4px 18px;}
+
+  /* RECOMENDAÇÕES - acordeão */
+  .reco-note{font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft); margin-bottom:16px; padding:10px 14px; background:var(--sand); border-radius:2px;}
+  .reco-group{border:1px solid var(--line); border-radius:2px; background:var(--white); margin-bottom:12px; overflow:hidden;}
+  .reco-group summary{list-style:none; cursor:pointer; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; font-family:'Cormorant Garamond',serif; font-size:19px; color:var(--earth-deep); font-weight:600;}
+  .reco-group summary::-webkit-details-marker{display:none;}
+  .reco-group summary .chev{font-family:'Inter',sans-serif; font-size:13px; color:var(--terracotta-deep); transition:transform .2s;}
+  .reco-group[open] summary .chev{transform:rotate(90deg);}
+  .reco-body{padding:0 18px 16px;}
+  .reco-city{font-family:'Inter',sans-serif; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--terracotta-deep); font-weight:600; margin:14px 0 8px;}
+  .reco-city:first-child{margin-top:0;}
+  .reco-item{padding:10px 0; border-bottom:1px solid var(--line);}
+  .reco-item:last-child{border-bottom:none;}
+  .reco-item .name{font-size:14px; font-weight:600; color:var(--ink);}
+  .reco-item .desc{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+  .reco-list{font-size:12.5px; color:var(--ink); margin:6px 0 0 16px;}
+  .reco-list li{margin-bottom:3px;}
+  .reco-tip{margin-top:12px; padding:10px 12px; background:var(--sand); border-radius:2px; font-size:12.5px; color:var(--earth);}
+  .reco-item-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+  .reco-price{font-family:'Inter',sans-serif; font-size:12px; font-weight:700; color:var(--gold); white-space:nowrap;}
+  .reco-tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .reco-tag-pill{font-family:'Inter',sans-serif; font-size:9.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--terracotta-deep); background:var(--sand); padding:3px 8px; border-radius:10px; font-weight:600;}
+  .reco-links{margin-top:6px; font-family:'Inter',sans-serif; font-size:11.5px;}
+  .reco-links a{color:var(--terracotta-deep); font-weight:600;}
+  .reco-links span.sep{color:var(--line); margin:0 4px;}
   .know-row{display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line);}
   .know-row:last-child{border-bottom:none;}
   .know-row svg.ic{color:var(--terracotta-deep); margin-top:2px;}
@@ -220,6 +245,9 @@
   <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 7 6 11.5A6 6 0 016 14.5C6 10 12 3 12 3z"/></symbol>
   <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.5 9.5c0-1.2 1.1-2 2.5-2s2.5.7 2.5 1.8c0 2.4-5 1.4-5 3.8 0 1.1 1.1 1.8 2.5 1.8s2.5-.8 2.5-2"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><path d="M7 2v8a2 2 0 002 2 2 2 0 002-2V2M9 12v10"/><path d="M16 2c-1 2-1 5 0 7s1 3 0 3v10"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l1 13H5L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></symbol>
 </svg>
 
 <header class="hero">
@@ -248,6 +276,7 @@
     <a class="navlink" data-target="documentos"><svg class="ic"><use href="#i-doc"/></svg>Documentos</a>
     <a class="navlink" data-target="contatos"><svg class="ic"><use href="#i-phone"/></svg>Contatos</a>
     <a class="navlink" data-target="dicas"><svg class="ic"><use href="#i-bulb"/></svg>Dicas diárias</a>
+    <a class="navlink" data-target="recomendacoes"><svg class="ic"><use href="#i-fork"/></svg>Recomendações</a>
   </div>
 </nav>
 
@@ -361,7 +390,7 @@
       <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">Madikwe é normalmente divulgada como reserva localizada em região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com profissional de saúde antes da viagem.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-coin"/></svg><div><div class="lbl">Gorjetas</div><div class="val">É praxe deixar entre 10% e 15% em restaurantes, e uma gorjeta para guias e motoristas ao final de cada passeio.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-phone"/></svg><div><div class="lbl">Internet</div><div class="val">Um chip local ou e-SIM facilita a conexão fora dos hotéis, especialmente durante os safáris.</div></div></div>
-      <div class="know-row"><svg class="ic"><use href="#i-alert"/></svg><div><div class="lbl">Emergência</div><div class="val">Polícia: 10111. Emergência geral pelo celular: 112. Os contatos privativos da viagem estão na seção Contatos.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-alert"/></svg><div><div class="lbl">Emergência</div><div class="val">Emergência geral pelo celular: 112. Ambulância: 10177. Polícia: 10111. Os contatos privativos da viagem estão na seção Contatos.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-shield"/></svg><div><div class="lbl">Segurança</div><div class="val">Como em qualquer grande cidade, evite exibir objetos de valor. Guias e transfers privativos cobrem todos os trechos do roteiro.</div></div></div>
     </div>
   </section>
@@ -374,6 +403,114 @@
     <div class="card tips-card">
       <div class="tips-grid" id="tipsList"></div>
     </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- RECOMENDAÇÕES -->
+  <section id="recomendacoes">
+    <div class="section-head"><div><div class="eyebrow">Sugestões da equipe</div><h2>Restaurantes, compras e farmácias</h2></div></div>
+    <div class="reco-note">Sugestões não reservadas — vale confirmar horário de funcionamento e disponibilidade antes de ir.</div>
+
+    <details class="reco-group">
+      <summary>Restaurantes <span class="chev">›</span></summary>
+      <div class="reco-body">
+        <div class="reco-city">Cape Town</div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">BAIA Seafood Restaurant — V&A Waterfront</div><div class="reco-price">$$$$</div></div>
+          <div class="desc">Sofisticado, especializado em peixes e frutos do mar. Boa escolha para um jantar especial.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Vista</span><span class="reco-tag-pill">Frutos do mar</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Ba%C3%ADa+Seafood+Restaurant+V%26A+Waterfront+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Baia+Seafood+Restaurant+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">Quay Four — V&A Waterfront</div><div class="reco-price">$$</div></div>
+          <div class="desc">Mais descontraído e animado, na área portuária. Fish and chips, frutos do mar e cervejas.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Descontraído</span><span class="reco-tag-pill">Vista</span><span class="reco-tag-pill">Família</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Quay+Four+V%26A+Waterfront+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Quay+Four+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">VIXI Social House</div><div class="reco-price">$$$</div></div>
+          <div class="desc">Contemporâneo e descontraído, bom para jantar, drinks ou uma noite mais animada.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Descontraído</span><span class="reco-tag-pill">Vida noturna</span><span class="reco-tag-pill">Drinks</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=VIXI+Social+House+49+Bree+Street+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=VIXI+Social+House+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">GOLD Restaurant</div><div class="reco-price">$$$$</div></div>
+          <div class="desc">Pratos inspirados em diferentes regiões da África, com apresentações culturais, música e dança. Mais do que um jantar.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Experiência cultural</span><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Grupos</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=GOLD+Restaurant+15+Bennett+Street+Green+Point+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=GOLD+Restaurant+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">Simon's Restaurant — Groot Constantia</div><div class="reco-price">$$$</div></div>
+          <div class="desc">Dentro da histórica vinícola Groot Constantia. Combina degustação de vinhos e almoço no mesmo passeio.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Vista</span><span class="reco-tag-pill">Vinícola</span><span class="reco-tag-pill">Família</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Simon%27s+Restaurant+Groot+Constantia+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Simon%27s+Restaurant+Groot+Constantia" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">Harbour House — Kalk Bay</div><div class="reco-price">$$$$</div></div>
+          <div class="desc">Frutos do mar praticamente sobre o oceano — vale combinar com o passeio à Península do Cabo e Boulders Beach. Peça mesa perto da janela.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Vista</span><span class="reco-tag-pill">Frutos do mar</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Harbour+House+Kalk+Bay+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Harbour+House+Kalk+Bay" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">The Office Bar & Restaurant — Sea Point</div><div class="reco-price">$$</div></div>
+          <div class="desc">Ambiente descontraído, bom para refeições casuais, encontros ou drinks no fim do dia.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Descontraído</span><span class="reco-tag-pill">Drinks</span><span class="reco-tag-pill">Casual</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=The+Office+Bar+315+Main+Road+Sea+Point+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=The+Office+Bar+Sea+Point+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">Grande Provence — Franschhoek</div><div class="reco-price">$$$</div></div>
+          <div class="desc">Na região das Winelands, com jardins, vinhos e gastronomia. Boa parada durante o passeio.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Vinícola</span><span class="reco-tag-pill">Família</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Grande+Provence+Main+Road+Franschhoek" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Grande+Provence+Franschhoek" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-city">Joanesburgo</div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">The Butcher Shop & Grill — Nelson Mandela Square</div><div class="reco-price">$$$$</div></div>
+          <div class="desc">Steakhouse tradicional em Sandton, especializado em carnes e cortes sul-africanos. Ambiente clássico e sofisticado.</div>
+          <div class="reco-tags"><span class="reco-tag-pill">Carnes</span><span class="reco-tag-pill">Clássico</span><span class="reco-tag-pill">Grupos</span></div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=The+Butcher+Shop+%26+Grill+Nelson+Mandela+Square+Sandton" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=The+Butcher+Shop+Grill+Sandton" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-tip">Restaurantes mais concorridos: BAIA, GOLD Restaurant, Harbour House e The Butcher Shop & Grill. Qualquer dúvida sobre como fazer a reserva, é só falar com seu guia — ele ajuda a verificar disponibilidade.</div>
+      </div>
+    </details>
+
+    <details class="reco-group">
+      <summary>Compras <span class="chev">›</span></summary>
+      <div class="reco-body">
+        <div class="reco-city">Cape Town</div>
+        <div class="reco-item"><div class="name">V&A Waterfront</div><div class="desc">A opção mais prática da cidade: marcas internacionais, moda, lembranças e restaurantes. Dentro dele, vale conhecer o Victoria Wharf Shopping Centre (shopping tradicional), The Watershed (artesanato e design local — ótimo para presentes diferentes) e a Cape Union Mart (roupas e equipamentos para atividades ao ar livre).</div></div>
+        <div class="reco-item"><div class="name">Canal Walk Shopping Centre</div><div class="desc">Grande porte, ampla variedade — mais afastado das áreas turísticas.</div></div>
+        <div class="reco-item"><div class="name">Cape Quarter</div><div class="desc">Menor e mais charmoso, perto de De Waterkant — restaurantes, decoração e design.</div></div>
+        <div class="reco-city">Joanesburgo</div>
+        <div class="reco-item"><div class="name">Sandton City e Nelson Mandela Square</div><div class="desc">Um dos maiores complexos comerciais do país — grifes de luxo, restaurantes e cafés.</div></div>
+        <div class="reco-item"><div class="name">Rosebank Mall e The Zone @ Rosebank</div><div class="desc">Moderno, com acesso próximo ao Gautrain — também conhecido por artesanato e produtos africanos.</div></div>
+        <ul class="reco-list">
+          <li>Vale procurar: vinhos sul-africanos, rooibos, cosméticos à base de rooibos, artesanato, roupas de safári, chocolates e temperos locais.</li>
+          <li>Ao comprar vinho, confirme o limite de bagagem e proteja bem as garrafas.</li>
+          <li>Prefira shoppings e lojas oficiais; evite exibir dinheiro ou objetos de valor em áreas externas.</li>
+          <li>Avise o banco sobre a viagem internacional antes de usar o cartão.</li>
+          <li>Quando a máquina oferecer cobrança em real ou em rand, normalmente vale mais a pena pagar em rand sul-africano.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="reco-group">
+      <summary>Farmácias e saúde <span class="chev">›</span></summary>
+      <div class="reco-body">
+        <div class="reco-item"><div class="name">Clicks</div><div class="desc">Rede de farmácias e produtos de saúde, beleza e higiene, presente em diversos shoppings.</div></div>
+        <div class="reco-item"><div class="name">Dis-Chem</div><div class="desc">Grande rede com medicamentos, primeiros socorros, protetor solar e produtos de viagem.</div></div>
+        <div class="reco-desc" style="font-size:12.5px; color:var(--ink-soft); margin-top:6px;">Ambas costumam ser encontradas em shoppings como V&A Waterfront, Canal Walk, Sandton City e Rosebank.</div>
+        <ul class="reco-list">
+          <li>Leve os medicamentos de uso contínuo do Brasil, em quantidade suficiente e na embalagem original.</li>
+          <li>Leve a receita médica, se possível também em inglês.</li>
+          <li>Não conte com encontrar a mesma marca usada no Brasil — alguns remédios podem exigir receita local.</li>
+          <li>Para sintomas persistentes, acione o seguro-viagem antes de procurar atendimento.</li>
+          <li>Mantenha na bolsa: protetor solar, repelente, analgésico e curativos.</li>
+        </ul>
+        <div class="reco-tip">Emergência geral (celular): 112 · Ambulância / emergência médica: 10177 · Deixe o telefone do seguro-viagem salvo antes de embarcar.</div>
+      </div>
+    </details>
   </section>
 
   <div class="wrap"><div class="divider"></div></div>
