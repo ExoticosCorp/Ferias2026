@@ -147,6 +147,9 @@
   .reco-price{font-family:'Inter',sans-serif; font-size:12px; font-weight:700; color:var(--gold); white-space:nowrap;}
   .reco-tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
   .reco-tag-pill{font-family:'Inter',sans-serif; font-size:9.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--terracotta-deep); background:var(--sand); padding:3px 8px; border-radius:10px; font-weight:600;}
+  .reco-confirmed-pill{font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:#4C6B3C; background:#EAF1E4; padding:4px 10px; border-radius:10px; white-space:nowrap;}
+  .reco-subhead{font-family:'Inter',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--earth-deep); margin:16px 0 6px; padding-top:12px; border-top:1px solid var(--line);}
+  .reco-subhead:first-child{border-top:none; padding-top:0; margin-top:0;}
   .reco-links{margin-top:6px; font-family:'Inter',sans-serif; font-size:11.5px;}
   .reco-links a{color:var(--terracotta-deep); font-weight:600;}
   .reco-links span.sep{color:var(--line); margin:0 4px;}
@@ -321,7 +324,7 @@
           <div class="k">Vento (meio-dia)</div><div class="v" id="wWind">-- km/h</div>
         </div>
         <div class="hourly-strip" id="hourlyStrip"></div>
-        <div class="weather-tip" id="wTip">O clima é atualizado automaticamente conforme o dia do roteiro selecionado.</div>
+        <div class="weather-tip" id="wTip">Previsão atualizada automaticamente e sujeita a alterações.</div>
         <div class="weather-loc">Fonte: Open-Meteo · atualizado agora</div>
       </div>
 
@@ -368,10 +371,20 @@
 
   <div class="wrap"><div class="divider"></div></div>
 
+  <!-- ROTINA ESTIMADA NO MHONDORO -->
+  <section id="rotina-mhondoro">
+    <div class="section-head"><div><div class="eyebrow">Mhondoro Safari Lodge</div><h2>Rotina estimada no Mhondoro</h2></div></div>
+    <p class="intro-text">A programação habitual do lodge é:</p>
+    <div class="card know-card" id="routineList"></div>
+    <div class="reco-tip" style="margin-top:12px;">Os horários são estimados e podem sofrer alterações. A programação definitiva será informada pelo lodge durante o check-in.</div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
   <!-- SOBRE O DESTINO -->
   <section id="sobre-destino">
     <div class="section-head"><div><div class="eyebrow">Conheça a viagem</div><h2>Sobre o destino</h2></div></div>
-    <p class="intro-text">A África do Sul reúne, numa só viagem, oceano, montanha, vinhedos e savana. Este roteiro passa por quatro paisagens bem diferentes entre si — a vida urbana e costeira da Cidade do Cabo, os vinhedos das Winelands, a energia de Joanesburgo e o silêncio selvagem de Madikwe — sempre com conforto e privacidade em cada trecho.</p>
+    <p class="intro-text">A África do Sul reúne, numa só viagem, oceano, montanha, vinhedos e savana. Este roteiro passa por quatro paisagens bem diferentes entre si — a vida urbana e costeira da Cidade do Cabo, os vinhedos das Winelands, a energia de Joanesburgo e o silêncio selvagem da Reserva de Welgevonden — sempre com conforto e privacidade em cada trecho.</p>
     <div class="grid-4col" id="legsList"></div>
   </section>
 
@@ -387,7 +400,7 @@
       <div class="know-row"><svg class="ic"><use href="#i-van"/></svg><div><div class="lbl">Trânsito</div><div class="val">Dirige-se pelo lado esquerdo — todos os deslocamentos do roteiro já são privativos.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-suitcase"/></svg><div><div class="lbl">Eletricidade</div><div class="val">Tomadas tipo M (220–230V) — leve adaptador de três pinos redondos.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-drop"/></svg><div><div class="lbl">Água</div><div class="val">Em caso de dúvida, priorize água mineral lacrada.</div></div></div>
-      <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">Madikwe é normalmente divulgada como reserva localizada em região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com profissional de saúde antes da viagem.</div></div></div>
+      <div class="know-row"><svg class="ic"><use href="#i-paw"/></svg><div><div class="lbl">Malária</div><div class="val">A Reserva de Welgevonden é divulgada como uma região sem malária. Orientações médicas e eventual necessidade de prevenção devem ser confirmadas com um profissional de saúde antes da viagem.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-coin"/></svg><div><div class="lbl">Gorjetas</div><div class="val">É praxe deixar entre 10% e 15% em restaurantes, e uma gorjeta para guias e motoristas ao final de cada passeio.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-phone"/></svg><div><div class="lbl">Internet</div><div class="val">Um chip local ou e-SIM facilita a conexão fora dos hotéis, especialmente durante os safáris.</div></div></div>
       <div class="know-row"><svg class="ic"><use href="#i-alert"/></svg><div><div class="lbl">Emergência</div><div class="val">Emergência geral pelo celular: 112. Ambulância: 10177. Polícia: 10111. Os contatos privativos da viagem estão na seção Contatos.</div></div></div>
@@ -415,6 +428,20 @@
     <details class="reco-group">
       <summary>Restaurantes <span class="chev">›</span></summary>
       <div class="reco-body">
+        <div class="reco-subhead">Confirmado e incluído</div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">Harbour House</div><span class="reco-confirmed-pill">Confirmado</span></div>
+          <div class="desc">Almoço incluído no passeio de 19 de julho (Cabo da Boa Esperança), sem bebidas.</div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Harbour+House+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Harbour+House+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+        <div class="reco-item">
+          <div class="reco-item-top"><div class="name">The Oak Restaurant — Grande Provence</div><span class="reco-confirmed-pill">Confirmado</span></div>
+          <div class="desc">Almoço incluído no passeio de 20 de julho (Winelands), menu de 2 pratos, sem bebidas.</div>
+          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Grande+Provence+Main+Road+Franschhoek" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Grande+Provence+Franschhoek" target="_blank" rel="noopener">TripAdvisor</a></div>
+        </div>
+
+        <div class="reco-subhead">Sugestões não reservadas</div>
+        <div class="reco-tip" style="margin-top:0; margin-bottom:12px;">Sugestão sujeita à disponibilidade. Reserva não incluída.</div>
         <div class="reco-city">Cape Town</div>
         <div class="reco-item">
           <div class="reco-item-top"><div class="name">BAIA Seafood Restaurant — V&A Waterfront</div><div class="reco-price">$$$$</div></div>
@@ -457,12 +484,6 @@
           <div class="desc">Ambiente descontraído, bom para refeições casuais, encontros ou drinks no fim do dia.</div>
           <div class="reco-tags"><span class="reco-tag-pill">Descontraído</span><span class="reco-tag-pill">Drinks</span><span class="reco-tag-pill">Casual</span></div>
           <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=The+Office+Bar+315+Main+Road+Sea+Point+Cape+Town" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=The+Office+Bar+Sea+Point+Cape+Town" target="_blank" rel="noopener">TripAdvisor</a></div>
-        </div>
-        <div class="reco-item">
-          <div class="reco-item-top"><div class="name">Grande Provence — Franschhoek</div><div class="reco-price">$$$</div></div>
-          <div class="desc">Na região das Winelands, com jardins, vinhos e gastronomia. Boa parada durante o passeio.</div>
-          <div class="reco-tags"><span class="reco-tag-pill">Romântico</span><span class="reco-tag-pill">Vinícola</span><span class="reco-tag-pill">Família</span></div>
-          <div class="reco-links"><a href="https://www.google.com/maps/search/?api=1&query=Grande+Provence+Main+Road+Franschhoek" target="_blank" rel="noopener">Endereço</a><span class="sep">·</span><a href="https://www.tripadvisor.com/Search?q=Grande+Provence+Franschhoek" target="_blank" rel="noopener">TripAdvisor</a></div>
         </div>
         <div class="reco-city">Joanesburgo</div>
         <div class="reco-item">
@@ -560,7 +581,6 @@
   </section>
 
   <div class="quickbar-desktop">
-    <div class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-ticket"/></svg>Checklist</div>
     <div class="qbtn" onclick="openMapForToday()"><svg class="ic"><use href="#i-pin"/></svg>Abrir mapa</div>
     <div class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-doc"/></svg>Documentos</div>
     <div class="qbtn" onclick="scrollToId('clima')"><svg class="ic"><use href="#i-sun"/></svg>Clima agora</div>
@@ -580,9 +600,8 @@
 </footer>
 
 <div class="quickbar-mobile">
-  <button class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-ticket"/></svg>Checklist</button>
   <button class="qbtn" onclick="openMapForToday()"><svg class="ic"><use href="#i-pin"/></svg>Mapa</button>
-  <button class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-doc"/></svg>Docs</button>
+  <button class="qbtn" onclick="scrollToId('documentos')"><svg class="ic"><use href="#i-doc"/></svg>Documentos</button>
   <button class="qbtn" onclick="scrollToId('clima')"><svg class="ic"><use href="#i-sun"/></svg>Clima</button>
   <button class="qbtn" onclick="scrollToId('contatos')"><svg class="ic"><use href="#i-phone"/></svg>Contatos</button>
   <button class="qbtn" onclick="sharePortal()"><svg class="ic"><use href="#i-share"/></svg>Compartilhar</button>
@@ -596,65 +615,75 @@ const LOCATIONS = {
   CAPEPOINT: {name:'Cabo da Boa Esperança / Hout Bay', lat:-34.3568, lon:18.4740},
   FRANSCHHOEK: {name:'Winelands (Franschhoek)', lat:-33.9106, lon:19.1197},
   JNB: {name:'Joanesburgo', lat:-26.1076, lon:28.0567},
-  WEL: {name:'Reserva de Madikwe', lat:-24.7500, lon:26.2833}
+  WEL: {name:'Reserva de Welgevonden', lat:-24.2500, lon:27.8833}
 };
 
 const days = [
   {n:1, date:'2026-07-17', label:'17 JUL', city:'São Paulo → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
-   desc:'Depois da despedida em Guarulhos, o avião decola rumo ao outro lado do Atlântico, na direção da ponta sul do continente africano. O voo internacional (LA 8060, decolagem às 22h45) atravessa a noite toda — hora de descansar, assistir a um filme ou deixar a expectativa da viagem tomar conta enquanto o Brasil fica para trás e a África do Sul se aproxima, fuso a fuso, quilômetro a quilômetro.',
+   desc:'Depois da despedida em Guarulhos, o avião decola direto para Cape Town, na ponta sul do continente africano. O voo internacional (LA 8060, decolagem às 22h45) atravessa a noite toda — hora de descansar, assistir a um filme ou deixar a expectativa da viagem tomar conta enquanto o Brasil fica para trás e a África do Sul se aproxima.',
    highlight:'A aventura começa: embarque rumo à África do Sul.',
-   bullets:['Embarque 22h45 (voo LA 8060)', 'Voo noturno GRU → CPT', 'Chegada em 18/07 pela manhã'],
+   bullets:['Embarque 22h45 (voo LA 8060)', 'Voo direto GRU → CPT', 'Chegada em 18/07 pela manhã'],
    img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop'},
   {n:2, date:'2026-07-18', label:'18 JUL', city:'Cape Town', icon:'i-bed', loc:'CPT', wloc:'CPT',
-   desc:'A chegada a Cape Town, às 10h55, já entrega o primeiro cartão-postal da viagem: a silhueta inconfundível da Table Mountain recortando o céu sobre a cidade. Um traslado privativo leva a família direto à orla, para o check-in no Radisson Collection Hotel Waterfront — endereço com vista para o mar e para a montanha ao mesmo tempo. A tarde fica livre para os primeiros passos por Cape Town, sem pressa, só para sentir a cidade e recuperar o fôlego da viagem.',
-   highlight:'Primeira vista da Table Mountain ao chegar à Cidade do Cabo.',
-   bullets:['Chegada 10h55 em Cape Town', 'Traslado privativo ao Radisson', 'Tarde livre na orla'],
+   desc:'A chegada a Cape Town, às 10h55, já entrega o primeiro cartão-postal da viagem: a silhueta inconfundível da Table Mountain recortando o céu sobre a cidade. Ainda na área restrita, ao final do finger, um representante em inglês vai aguardar a família com uma placa de identificação, oferecendo assistência de cortesia na imigração e na retirada das bagagens, além de fazer o encontro com o responsável pelo traslado. <strong>Ao desembarcar, fiquem atentos à placa de identificação e apresentem-se ao representante.</strong> Na sequência, traslado privativo em português até o Radisson Collection Hotel Waterfront Cape Town, com check-in a partir das 15h. O hotel confirmou a preparação de um pack breakfast para o dia 22/07, devido à saída antecipada para o aeroporto — vale reconfirmar essa informação diretamente com a recepção durante o check-in.',
+   highlight:'Primeira vista da Table Mountain — e assistência VIP na chegada.',
+   bullets:['Assistência VIP em inglês na chegada', 'Transfer privativo ao Radisson', 'Check-in a partir das 15h'],
    img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1000&auto=format&fit=crop'},
   {n:3, date:'2026-07-19', label:'19 JUL', city:'Cape Town', icon:'i-pin', loc:'CPT', wloc:'CAPEPOINT', hourly:true,
-   desc:'Um dos programas mais celebrados da África do Sul começa cedo: em tour privativo guiado em português, o dia atravessa Hout Bay para um passeio de barco até Seal Island (09h15), segue pela estrada litorânea de Chapman\'s Peak — uma das mais bonitas do mundo — até o farol do Cape Point e o extremo do Cabo da Boa Esperança, onde dois oceanos parecem se encontrar. O passeio termina em Boulders Beach, entre colônias de pinguins africanos na areia. Almoço incluso ao longo do caminho.',
-   highlight:'Pinguins selvagens em Boulders Beach — um dos passeios mais fotografados do Cabo.',
-   bullets:['Barco a Seal Island 09h15', 'Chapman\'s Peak e Cape Point', 'Pinguins em Boulders Beach'],
+   desc:'Saída do hotel às 8h para passeio privativo de dia inteiro, com acompanhamento em português: passeio de barco até Seal Island, Chapman\'s Peak (caso a estrada esteja aberta), Cabo da Boa Esperança, Cape Point, funicular, almoço no Harbour House (sem bebidas) e Boulders Beach, com os pinguins africanos. Retorno ao hotel ao final do passeio.<br><br><em>Passeio: confirmado. Harbour House: incluído e confirmado. Passeio de barco: sujeito às condições do mar. Chapman\'s Peak: sujeito às condições operacionais e climáticas.</em>',
+   highlight:'Harbour House com vista para o mar, e os pinguins de Boulders Beach.',
+   bullets:['Saída às 8h, passeio em português', 'Almoço confirmado no Harbour House', 'Boulders Beach e os pinguins'],
    img:'https://images.unsplash.com/photo-1580654712603-eb43273aff33?q=80&w=1000&auto=format&fit=crop'},
   {n:4, date:'2026-07-20', label:'20 JUL', city:'Winelands', icon:'i-grape', loc:'CPT', wloc:'FRANSCHHOEK',
-   desc:'Entre vinhedos, montanhas e casarões de arquitetura cabo-holandesa, o dia é dedicado à charmosa região das Winelands, também em tour privativo. As paradas passam por Stark-Condé (10h), Grande Provence (11h30, com almoço às 13h) e Boschendal (15h30) — cada uma com sua própria degustação, e opções especiais sem álcool preparadas para as crianças em cada parada. Um brinde tranquilo, no ritmo do interior sul-africano.',
+   desc:'Saída às 8h para o dia dedicado à região das Winelands, em tour privativo. Às 10h, degustação em Stark-Condé para os adultos, com experiência não alcoólica para as crianças. Às 11h30, nova degustação na Grande Provence, também com opção não alcoólica para os pequenos. Às 13h, almoço no The Oak Restaurant, com menu de dois pratos (bebidas não incluídas). Às 15h30, última parada em Boschendal, com degustação para os adultos e suco de uva para as crianças. Retorno ao hotel ao final da tarde.',
    highlight:'Dia de vinhos premiados entre Franschhoek e Groot Drakenstein.',
-   bullets:['Stark-Condé às 10h', 'Almoço no Grande Provence 13h', 'Boschendal às 15h30'],
+   bullets:['Stark-Condé às 10h', 'Almoço no The Oak Restaurant, 13h', 'Boschendal às 15h30'],
    img:'https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1000&auto=format&fit=crop'},
   {n:5, date:'2026-07-21', label:'21 JUL', city:'Cape Town', icon:'i-leaf', loc:'CPT', wloc:'CPT',
-   desc:'Um dia inteiro sem compromissos marcados, para explorar Cape Town no próprio tempo da família. O V&A Waterfront pede uma tarde de lojas, cafés e vista para o porto; o teleférico de Table Mountain oferece um panorama de tirar o fôlego, sujeito às condições do dia; e o hotel continua ali, pronto para um respiro a mais entre um passeio e outro. A cidade fica livre para ser descoberta do jeito que a família preferir.',
+   desc:'Dia livre em Cape Town, sem compromissos marcados. Sugestões não reservadas: passeio de meio dia pela cidade, Table Mountain (sujeita às condições climáticas), V&A Waterfront, Two Oceans Aquarium, Bo-Kaap, compras e restaurantes no Waterfront. O Radisson Collection oferece shuttle gratuito de ida e volta ao V&A Waterfront — horários sujeitos à programação do hotel, a confirmar na recepção. Antes de dormir, vale reconfirmar com a recepção o pack breakfast do dia seguinte e deixar as malas prontas.',
    highlight:'Cidade do Cabo no seu próprio ritmo.',
-   bullets:['Dia livre em Cape Town', 'V&A Waterfront e Bo-Kaap', 'Teleférico sujeito ao clima'],
+   bullets:['Dia livre — sugestões não reservadas', 'Shuttle gratuito ao Waterfront', 'Reconfirmar pack breakfast e malas prontas'],
    img:'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop'},
   {n:6, date:'2026-07-22', label:'22 JUL', city:'Cape Town → Johannesburgo', icon:'i-plane', loc:'JNB', wloc:'JNB',
-   desc:'Check-out cedo e traslado ao aeroporto (06h00) para um curto voo doméstico (SA 0314, 08h15–10h20) que leva a família de Cape Town a Joanesburgo — a maior cidade do país e a porta de entrada para o safári. Um traslado privativo conduz direto ao The Leonardo, no coração de Sandown, para uma noite de descanso antes da imersão na natureza que começa no dia seguinte.',
+   desc:'Check-out e saída do hotel às 6h, em transfer privativo para o Aeroporto de Cape Town — o hotel prepara um pack breakfast para a família. Voo SA 0314 (08h15–10h20) rumo a Joanesburgo. Na chegada, traslado privativo em português do Aeroporto O.R. Tambo até o The Leonardo, com check-in a partir das 15h.',
    highlight:'Rumo a Joanesburgo, porta de entrada para o safári.',
-   bullets:['Traslado 06h ao aeroporto', 'Voo SA 0314 · 08h15', 'Chegada em Sandown, JNB'],
+   bullets:['Saída às 6h, pack breakfast do hotel', 'Voo SA 0314 · 08h15', 'Check-in no Leonardo a partir das 15h'],
    img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
-  {n:7, date:'2026-07-23', label:'23 JUL', city:'Johannesburgo → Madikwe', icon:'i-van', loc:'WEL', wloc:'WEL',
-   desc:'A paisagem muda por completo: depois do check-out do The Leonardo, um traslado privativo (07h30) segue rumo ao noroeste do país até o Mhondoro Safari Lodge & Villa, na Reserva de Madikwe — divulgada como região sem malária e lar de leões, elefantes, búfalos, leopardos e rinocerontes. Após a chegada, a programação de safári será alinhada diretamente pelo lodge, conforme os horários operacionais do dia.',
-   highlight:'Chegada a Madikwe — o silêncio da savana começa aqui.',
-   bullets:['Traslado 07h30 ao Mhondoro', 'Chegada à Reserva de Madikwe', 'Programação definida pelo lodge'],
+  {n:7, date:'2026-07-23', label:'23 JUL', city:'Johannesburgo → Welgevonden', icon:'i-van', loc:'WEL', wloc:'WEL',
+   desc:'Café da manhã, check-out e saída às 7h30 em transfer privativo com destino ao Mhondoro Safari Lodge & Villa, na Reserva de Welgevonden. Na chegada: check-in, almoço ou programação conforme o horário operacional do lodge, com possibilidade de safári à tarde conforme informado no check-in, e jantar. Todos os safáris são compartilhados e realizados em inglês.',
+   highlight:'Chegada a Welgevonden — o silêncio da savana começa aqui.',
+   bullets:['Saída às 7h30 ao Mhondoro', 'Chegada à Reserva de Welgevonden', 'Safáris compartilhados, em inglês'],
    img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
-  {n:8, date:'2026-07-24', label:'24 JUL', city:'Reserva de Madikwe', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
-   desc:'Um dia inteiro no ritmo da savana, com pensão completa. Estão incluídas duas atividades de safári — os horários exatos são informados pelo lodge conforme a rotina do dia, mas costumam acontecer nos períodos de maior atividade dos animais, ao amanhecer e ao entardecer. Entre uma saída e outra, tempo livre no lodge — piscina, spa ou simplesmente observar o cocho d\'água em frente à suíte.',
+  {n:8, date:'2026-07-24', label:'24 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+   desc:'Pensão completa e duas atividades de safári — uma normalmente ao amanhecer e outra à tarde, com horários estimados e sujeitos à programação do lodge. Leve casaco pesado, roupas em camadas, gorro, luvas, calçado fechado, binóculo, câmera, protetor solar e protetor labial, e siga sempre as orientações dos guias.',
    highlight:'Big Five ao amanhecer, a poucos metros do veículo.',
-   bullets:['Pensão completa no lodge', 'Duas atividades de safári', 'Horários definidos pelo lodge'],
+   bullets:['Pensão completa no lodge', 'Duas atividades de safári/dia', 'Horários estimados pelo lodge'],
    img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
-  {n:9, date:'2026-07-25', label:'25 JUL', city:'Reserva de Madikwe', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
-   desc:'Mais um dia mergulhado no bush, com guia e tracker especializados em cada saída. Estão incluídas duas atividades de safári, com horários informados pelo lodge. Nenhum game drive se repete: os rastros, os sons e os encontros mudam a cada saída, e é normal perder a conta de quantas espécies diferentes já foram avistadas até aqui. O lodge segue oferecendo pensão completa e todo o conforto para recarregar as energias.',
+  {n:9, date:'2026-07-25', label:'25 JUL', city:'Reserva de Welgevonden', icon:'i-paw', loc:'WEL', wloc:'WEL', hourly:true,
+   desc:'Mais um dia de pensão completa e duas atividades de safári, com guia e tracker dedicados — uma ao amanhecer e outra à tarde, horários estimados pelo lodge. Nenhum game drive se repete: leve sempre casaco pesado, camadas, gorro, luvas, calçado fechado, binóculo, câmera e protetor solar.',
    highlight:'Cada game drive é diferente do anterior.',
    bullets:['Mais um dia de safári', 'Guia e tracker dedicados', 'Pensão completa'],
    img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=1000&auto=format&fit=crop'},
-  {n:10, date:'2026-07-26', label:'26 JUL', city:'Madikwe → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
-   desc:'Check-out do Mhondoro e traslado até o aeroporto (horário informado no voucher: 11h00, em reconfirmação operacional — o trajeto pode levar cerca de 5h), seguido do voo de volta a Cape Town (SA 0359, 17h30–19h45) — já ao entardecer, com a cidade se acendendo pela janela do avião. A última noite da viagem é no Southern Sun Waterfront, a poucos passos da orla.',
+  {n:10, date:'2026-07-26', label:'26 JUL', city:'Welgevonden → Cape Town', icon:'i-plane', loc:'CPT', wloc:'CPT',
+   desc:'Safári matinal, retorno ao lodge, café da manhã e check-out. Transfer até o portão de entrada da reserva e, às 11h, saída em transfer privativo direto para o Aeroporto O.R. Tambo — horário confirmado pelo fornecedor, considerando o tempo previsto de trajeto (uma eventual parada rápida no caminho ainda depende de confirmação do motorista). Voo SA 0359 (17h30–19h45) rumo a Cape Town. Na chegada, traslado privativo em português até o Southern Sun Waterfront Cape Town.',
    highlight:'De volta à Cidade do Cabo para o último capítulo da viagem.',
-   bullets:['Traslado ao aeroporto (em reconfirmação)', 'Voo SA 0359 · 17h30', 'Última noite no Southern Sun'],
+   bullets:['Safári matinal e checkout', 'Transfer às 11h ao aeroporto', 'Voo SA 0359 · 17h30'],
    img:'https://images.unsplash.com/photo-1493707553966-283afac8c358?q=80&w=1000&auto=format&fit=crop'},
   {n:11, date:'2026-07-27', label:'27 JUL', city:'Cape Town → São Paulo', icon:'i-plane', loc:'CPT', wloc:'CPT',
-   desc:'É hora de fazer as malas pela última vez: check-out do Southern Sun Waterfront e traslado ao aeroporto (13h00) para o voo internacional de volta a São Paulo, às 15h50. Fecha-se o círculo de uma viagem que passou pelo oceano, pelos vinhedos e pela savana.',
+   desc:'Café da manhã e check-out até 11h. Às 13h, transfer privativo em português do Southern Sun Waterfront Cape Town ao Aeroporto Internacional de Cape Town, para o voo internacional de volta a São Paulo — LA 8061, às 15h50, com chegada prevista para as 20h. Fecha-se o círculo de uma viagem que passou pelo oceano, pelos vinhedos e pela savana.',
    highlight:'Hora de voltar para casa, com as malas cheias de histórias.',
-   bullets:['Check-out do Southern Sun', 'Traslado ao aeroporto às 13h', 'Voo LA 8061 · 15h50'],
+   bullets:['Check-out até 11h', 'Transfer às 13h ao aeroporto', 'Voo LA 8061 · 15h50'],
    img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'}
+];
+
+const mhondoroRoutine = [
+  {time:'5h – 5h30', label:'Despertar'},
+  {time:'—', label:'Pequeno desjejum antes do safári'},
+  {time:'Por volta das 6h', label:'Saída para safári ao amanhecer (duração aproximada de 3h)'},
+  {time:'No retorno', label:'Café da manhã'},
+  {time:'12h30 – 13h', label:'Almoço'},
+  {time:'Por volta das 16h', label:'Saída para safári da tarde (duração aproximada de 3h)'},
+  {time:'Por volta das 19h30', label:'Jantar'}
 ];
 
 const legs = [
@@ -663,15 +692,15 @@ const legs = [
   {name:'Winelands', img:'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=600&auto=format&fit=crop',
    text:'A meia hora do Cabo, Franschhoek e Stellenbosch guardam algumas das vinícolas mais premiadas do país.'},
   {name:'Joanesburgo', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=600&auto=format&fit=crop',
-   text:'Parada rápida na maior cidade do país e porta de entrada para o safári em Madikwe.'},
-  {name:'Madikwe', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
-   text:'Reserva privada em Madikwe, divulgada como região sem malária, lar dos Big Five, vivenciados em safáris guiados duas vezes ao dia.'}
+   text:'Parada rápida na maior cidade do país e porta de entrada para o safári na Reserva de Welgevonden.'},
+  {name:'Reserva de Welgevonden', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
+   text:'Divulgada como região sem malária, lar dos Big Five, vivenciados em safáris guiados duas vezes ao dia.'}
 ];
 
 const packingTips = [
-  {txt:'Documentos em uma pasta só: passaporte, declaração SATMS, certificado de febre amarela e apólice do seguro.', img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Documentos em uma pasta só: passaporte, certificado de febre amarela e apólice do seguro.', img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Roupas em camadas — o inverno sul-africano é seco, com manhãs e noites frias e tardes amenas.', img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop'},
-  {txt:'Binóculo e câmera com zoom são essenciais para os safáris em Madikwe.', img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
+  {txt:'Binóculo e câmera com zoom são essenciais para os safáris em Welgevonden.', img:'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Protetor solar e óculos de sol, mesmo no inverno — o sol do Cabo é forte durante o dia.', img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Adaptador de tomada tipo M (três pinos redondos) — os plugues sul-africanos são diferentes dos brasileiros.', img:'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop'},
   {txt:'Uma muda de roupa na bagagem de mão, por causa da conexão em Joanesburgo.', img:'https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=1000&auto=format&fit=crop'},
@@ -688,8 +717,8 @@ const flights = [
 const hotels = [
   {name:'Radisson Collection Hotel Waterfront', url:'https://www.radissonhotels.com/en-us/hotels/radisson-collection-cape-town-waterfront', city:'Cape Town', dates:'18 a 22 de julho (4 noites)', regime:'Café da manhã incluso', addr:'100 Beach Road, Granger Bay, Cape Town', phone:'+27214413000'},
   {name:'The Leonardo', url:'https://www.legacyhotels.co.za/the-leonardo', city:'Sandown, Johannesburgo', dates:'22 a 23 de julho (1 noite)', regime:'Café da manhã incluso', addr:'75 Maude Street, Sandown, Johannesburgo', phone:'+27875360000'},
-  {name:'Mhondoro Safari Lodge & Villa', url:'https://mhondoro.com/', city:'Reserva de Madikwe, North West', dates:'23 a 26 de julho (3 noites)', regime:'Pensão completa + 2 safáris/dia', addr:'Madikwe Game Reserve, North West', phone:'+27219751008'},
-  {name:'Southern Sun Waterfront', url:'https://www.southernsun.com/southern-sun-waterfront-cape-town', city:'Cape Town', dates:'26 a 27 de julho (1 noite)', regime:'Café da manhã incluso', addr:'1 Lower Buitengracht, Cape Town', phone:'+27214094000'}
+  {name:'Mhondoro Safari Lodge & Villa', url:'https://mhondoro.com/', city:'Reserva de Welgevonden', dates:'23 a 26 de julho (3 noites)', regime:'Pensão completa + 2 safáris/dia', addr:'Welgevonden Game Reserve, Limpopo', phone:'+27147554917'},
+  {name:'Southern Sun Waterfront Cape Town', url:'https://www.southernsun.com/southern-sun-waterfront-cape-town', city:'Cape Town', dates:'26 a 27 de julho (1 noite)', regime:'Café da manhã incluso', addr:'1 Lower Buitengracht, Cape Town', phone:'+27214094000'}
 ];
 
 const transfers = [
@@ -697,64 +726,66 @@ const transfers = [
   {route:'Radisson Waterfront → Aeroporto de Cape Town', date:'22 jul', time:'06h00', guide:'José', phone:'+27683727498'},
   {route:'Aeroporto O.R. Tambo (JNB) → The Leonardo', date:'22 jul', time:'chegada do voo', guide:'Milton', phone:'+27618739873'},
   {route:'The Leonardo → Mhondoro Safari Lodge', date:'23 jul', time:'07h30', guide:'Azafo', phone:'+27781999097'},
-  {route:'Mhondoro Safari Lodge → Aeroporto O.R. Tambo (JNB)', date:'26 jul', time:'Horário informado no voucher: 11h00. Em reconfirmação operacional com o receptivo (trajeto pode levar cerca de 5h).', guide:'Azafo', phone:'+27781999097'},
+  {route:'Mhondoro Safari Lodge → Aeroporto O.R. Tambo (JNB)', date:'26 jul', time:'11h00 — confirmado pelo fornecedor, considerando o trajeto até o aeroporto. Eventual parada rápida no caminho depende de confirmação do motorista.', guide:'Azafo', phone:'+27781999097'},
   {route:'Aeroporto de Cape Town → Southern Sun Waterfront', date:'26 jul', time:'chegada do voo', guide:'José', phone:'+27683727498'},
-  {route:'Southern Sun Waterfront → Aeroporto de Cape Town', date:'27 jul', time:'13h00', guide:'José', phone:'+27683727498'}
+  {route:'Southern Sun Waterfront Cape Town → Aeroporto de Cape Town', date:'27 jul', time:'13h00', guide:'José', phone:'+27683727498'}
 ];
 
 const contacts = [
-  {role:'Transfers Cidade do Cabo · dias 18, 22, 26 e 27', name:'José', phone:'+27683727498'},
-  {role:'Guia dos passeios · dias 19 e 20', name:'Hermínio', phone:'+27632174444'},
+  {role:'Transfers em Cape Town · dias 18, 22, 26 e 27', name:'José', phone:'+27683727498'},
+  {role:'Passeios em Cape Town · dias 19 e 20', name:'Hermínio', phone:'+27632174444'},
   {role:'Transfer de chegada em Joanesburgo · dia 22', name:'Milton', phone:'+27618739873'},
-  {role:'Transfers para o Mhondoro · dias 23 e 26', name:'Azafo', phone:'+27781999097'},
-  {role:'Emergência 24h · Akilanga DMC', name:'Central de atendimento', phone:'+27826519600'},
+  {role:'Transfers entre Joanesburgo e Mhondoro · dias 23 e 26', name:'Azafo', phone:'+27781999097'},
+  {role:'Atendimento emergencial 24h em português (celular e WhatsApp) · Akilanga', name:'Central de atendimento', phone:'+27826519600'},
   {role:'Radisson Collection Waterfront', name:'Recepção do hotel', phone:'+27214413000'},
-  {role:'The Leonardo, Sandown', name:'Recepção do hotel', phone:'+27875360000'},
-  {role:'Mhondoro Safari Lodge', name:'Recepção do lodge', phone:'+27219751008'},
+  {role:'The Leonardo', name:'Recepção do hotel', phone:'+27875360000'},
+  {role:'Mhondoro Safari Lodge', name:'Recepção do lodge', phone:'+27147554917'},
   {role:'Southern Sun Waterfront', name:'Recepção do hotel', phone:'+27214094000'}
 ];
 
 const tipsByDay = [
   {date:'19 jul · Cape Town', items:[
-    {tag:'Passeio', txt:'Cabo da Boa Esperança em tour privativo: barco a Seal Island saindo de Hout Bay (09h15), Chapman\'s Peak, funicular do Cape Point e Boulders Beach.'},
-    {tag:'Restaurantes', txt:'Almoço incluso no passeio, em local definido pelo guia no dia (bebidas não inclusas).'},
+    {tag:'Confirmado', txt:'Cabo da Boa Esperança em tour privativo: barco a Seal Island saindo de Hout Bay, Chapman\'s Peak, funicular do Cape Point e Boulders Beach.'},
+    {tag:'Confirmado', txt:'Almoço incluído no Harbour House, sem bebidas.'},
     {tag:'Roupas', txt:'Vento forte é praticamente garantido em Cape Point e no trecho de barco — corta-vento, casaco extra e calçado fechado fazem toda diferença.'},
     {tag:'Hidratação', txt:'Leve água para todos: o passeio é longo e o vento costuma disfarçar a sede, principalmente para as crianças.'},
     {tag:'Sujeito ao clima', txt:'Chapman\'s Peak pode fechar por vento forte ou chuva — o guia ajusta o trajeto se necessário.'}
   ]},
   {date:'20 jul · Winelands', items:[
-    {tag:'Passeio', txt:'Degustações em Stark-Condé (10h), Grande Provence (11h30) e Boschendal (15h30).'},
-    {tag:'Restaurantes', txt:'Almoço confirmado no The Oak Restaurant, dentro do Grande Provence, às 13h — menu de 2 pratos, bebidas à parte.'},
+    {tag:'Confirmado', txt:'Degustações em Stark-Condé (10h), Grande Provence (11h30) e Boschendal (15h30).'},
+    {tag:'Confirmado', txt:'Almoço no The Oak Restaurant, dentro do Grande Provence, às 13h — menu de 2 pratos, bebidas à parte.'},
     {tag:'Crianças', txt:'Experiências não alcoólicas confirmadas em cada vinícola: rooibos e chocolate em Stark-Condé, harmonização com nougat em Grande Provence, e suco de uva em Boschendal.'},
     {tag:'Roupas', txt:'Nas Winelands a temperatura varia bastante entre manhã e tarde — uma camada extra fácil de tirar e guardar é o ideal.'},
     {tag:'Dica prática', txt:'Reserve tempo de deslocamento entre as vinícolas e hidrate-se entre uma degustação e outra.'}
   ]},
   {date:'21 jul · Cape Town', items:[
-    {tag:'Sugestão', txt:'Dia livre, sem reserva — ideias: V&A Waterfront e o bairro colorido do Bo-Kaap.'},
-    {tag:'Sujeito ao clima', txt:'Teleférico de Table Mountain — abre apenas com boas condições de vento e visibilidade, sem horário garantido.'},
-    {tag:'Sugestão', txt:'Restaurantes não reservados: o V&A Waterfront reúne opções do casual ao gastronômico, de frutos do mar a cozinha sul-africana contemporânea.'},
+    {tag:'Sugestão', txt:'Dia livre, sem reserva — ideias: passeio de meio dia pela cidade, V&A Waterfront, Two Oceans Aquarium e o bairro colorido do Bo-Kaap.'},
+    {tag:'Sujeito ao clima', txt:'Table Mountain e o teleférico — abrem apenas com boas condições de vento e visibilidade, sem horário garantido.'},
+    {tag:'Sugestão', txt:'O Radisson Collection oferece shuttle gratuito de ida e volta ao V&A Waterfront — horários a confirmar na recepção.'},
+    {tag:'Dica prática', txt:'Reconfirmar na recepção o pack breakfast do dia seguinte e deixar as malas prontas na noite anterior.'},
     {tag:'Roupas', txt:'Mesmo em dia livre, leve corta-vento — o vento no Cabo muda de intensidade a qualquer hora do dia.'}
   ]},
   {date:'22 jul · Cape Town → Joanesburgo', items:[
-    {tag:'Alerta', txt:'Traslado ao aeroporto às 06h — deixar as malas prontas na véspera.'},
+    {tag:'Confirmado', txt:'Traslado ao aeroporto às 6h, com pack breakfast preparado pelo hotel.'},
     {tag:'Roupas', txt:'Joanesburgo tende a ser mais seca e com noites frias no inverno — vale uma camada extra para a chegada.'}
   ]},
   {date:'23 jul · Rumo ao safári', items:[
-    {tag:'Roupas', txt:'As manhãs no bush são as mais frias do roteiro, podendo chegar perto de 0°C ao amanhecer — casaco pesado, gorro e luvas valem a pena nos primeiros game drives.'},
-    {tag:'Hidratação', txt:'Leve uma garrafa de água própria; os lodges normalmente oferecem recarga e bebidas quentes nas saídas.'}
+    {tag:'Confirmado', txt:'Todos os safáris no Mhondoro são compartilhados e realizados em inglês.'},
+    {tag:'Roupas', txt:'As manhãs no bush são as mais frias do roteiro — casaco pesado, gorro e luvas valem a pena nos primeiros game drives.'},
+    {tag:'Hidratação', txt:'Leve uma garrafa de água própria; o lodge normalmente oferece recarga e bebidas quentes nas saídas.'}
   ]},
-  {date:'24–25 jul · Madikwe', items:[
-    {tag:'Passeio', txt:'Dois safáris por dia, ao amanhecer e ao entardecer, com guia e tracker especializados.'},
-    {tag:'Roupas', txt:'Tons neutros/terrosos, calçado fechado e camadas — frio cortante de manhã, ameno à tarde, e vento constante nos veículos abertos.'},
-    {tag:'Hidratação', txt:'Leve água nos game drives, mesmo com o lodge oferecendo café e chá quente na saída.'},
-    {tag:'Crianças', txt:'Vale perguntar ao lodge sobre atividades específicas para os pequenos fora dos horários de safári.'}
+  {date:'24–25 jul · Welgevonden', items:[
+    {tag:'Horário estimado', txt:'Dois safáris por dia, um ao amanhecer e outro à tarde — horários exatos informados pelo lodge no check-in.'},
+    {tag:'Roupas', txt:'Casaco pesado, camadas, gorro, luvas e calçado fechado — frio cortante de manhã, ameno à tarde, vento constante nos veículos abertos.'},
+    {tag:'Dica prática', txt:'Leve binóculo, câmera, protetor solar e protetor labial, e siga sempre as orientações dos guias.'},
+    {tag:'Hidratação', txt:'Leve água nos game drives, mesmo com o lodge oferecendo café e chá quente na saída.'}
   ]},
   {date:'26 jul · Retorno a Cape Town', items:[
-    {tag:'Alerta', txt:'Voo à noite (17h30–19h45) — chegada ao hotel já tarde.'},
-    {tag:'Roupas', txt:'Cape Town esfria rápido à noite perto do mar — leve um casaco para o desembarque.'}
+    {tag:'Confirmado', txt:'Transfer ao aeroporto às 11h, horário confirmado pelo fornecedor considerando o trajeto.'},
+    {tag:'Roupas', txt:'Voo à noite (17h30–19h45) — Cape Town esfria rápido perto do mar, leve um casaco para o desembarque.'}
   ]},
   {date:'27 jul · Retorno ao Brasil', items:[
-    {tag:'Dica prática', txt:'Transfer final às 13h — reconfirmar com José 48h antes.'}
+    {tag:'Confirmado', txt:'Transfer final às 13h, do Southern Sun Waterfront Cape Town ao aeroporto.'}
   ]}
 ];
 
@@ -787,6 +818,12 @@ function renderLegs(){
       <div class="leg-media"><img src="${l.img}" alt="${l.name}"></div>
       <div class="leg-body"><h3>${l.name}</h3><p>${l.text}</p></div>
     </div>`).join('');
+}
+
+function renderRoutine(){
+  document.getElementById('routineList').innerHTML = mhondoroRoutine.map(r => `
+    <div class="know-row"><svg class="ic"><use href="#i-clock"/></svg><div><div class="lbl">${r.time}</div><div class="val">${r.label}</div></div></div>
+  `).join('');
 }
 
 function renderTips(){
@@ -992,7 +1029,8 @@ async function loadWeatherForIndex(idx){
       strip.classList.add('show');
     }
   }catch(e){
-    document.getElementById('wCond').textContent = 'indisponível offline';
+    document.getElementById('wCond').textContent = 'Previsão temporariamente indisponível. Tente novamente mais tarde.';
+    document.getElementById('wTemp').textContent = '—';
     document.getElementById('weatherUpdatedTag').textContent = 'sem conexão';
   }
 }
@@ -1030,6 +1068,7 @@ document.querySelectorAll('.navlink').forEach(link => {
 
 const tripState = getTripState();
 renderDays();
+renderRoutine();
 renderLegs();
 renderTips();
 renderFlights();
